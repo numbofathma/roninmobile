@@ -1,6 +1,6 @@
 .DS_STORE
 .next
-node_modules
+node_modules/*
 scripts/flow/*/.flowconfig
 *~
 *.pyc
@@ -18,7 +18,7 @@ test/the-files-to-test.generated.js
 chrome-user-data
 *.sublime-project
 *.sublime-workspace
-.idea
+.idea/*
 *.iml
 .vscode
 *.swp
