@@ -1,0 +1,47 @@
+import * as React from 'react';
+import {OurWorkWrapper} from './style';
+import ProjectCard from '../ProjectCard';
+import {Col, Container, Row} from 'reactstrap';
+import {SlideButton, SlideHeader} from '../common/Style/style';
+import {Project} from '../../redux/state';
+
+interface OurWorkProps {
+    onClick: () => void;
+    projects: Project[];
+}
+
+const OurWork = (props: OurWorkProps) => (
+    <OurWorkWrapper>
+        <Container>
+            <Row>
+                <Col>
+                    <SlideHeader>OUR WORK</SlideHeader>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>These are some of our applications we done so far. Check them out and let us know what you think via the reviews.</p>
+                </Col>
+            </Row>
+            <Row>
+                {props.projects.map((project, id) => (
+                    <Col key={id} xs='12' sm='12' md='6' xl='4'>
+                        <ProjectCard
+                            project={project}
+                            colorFront='#FFFFFF'
+                            colorBack='#E9E9E9'
+                        />
+                    </Col>
+                ))}
+            </Row>
+            <Row>
+                <Col>
+                    <br /><br /><br />
+                    <SlideButton size='lg' onClick={props.onClick}>CONTACT US</SlideButton>
+                </Col>
+            </Row>
+        </Container>
+    </OurWorkWrapper>
+);
+
+export default OurWork;

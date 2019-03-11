@@ -1,22 +1,45 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import * as React from 'react';
+import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
+import ReactGA from 'react-ga';
 
 export default class MyDocument extends Document {
-    static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx)
-        return { ...initialProps }
+    static async getInitialProps (ctx) {
+        const sheet = new ServerStyleSheet();
+        const originalRenderPage = ctx.renderPage;
+
+        try {
+            ctx.renderPage = () => originalRenderPage({
+                enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+            });
+
+            const initialProps = await Document.getInitialProps(ctx);
+
+            return {
+                ...initialProps,
+                styles: <>{initialProps.styles}{sheet.getStyleElement()}</>
+            };
+        } finally {
+            sheet.seal();
+        }
+    }
+
+    componentDidMount(): void {
+        ReactGA.initialize('UA-61042122-7');
+        ReactGA.pageview(window.location.pathname + window.location.search);
     }
 
     render() {
         return (
             <html>
-            <Head>
-                <style>{`body { margin: 0 } /* custom! */`}</style>
-            </Head>
-            <body className="custom_class">
-            <Main />
-            <NextScript />
-            </body>
+                <Head>
+                    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' />
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
             </html>
-        )
+        );
     }
 }

@@ -1,24 +1,30 @@
-import React from 'react'
-import App, { Container } from 'next/app'
+import * as React from 'react';
+import App, { Container } from 'next/app';
+import {Provider} from 'react-redux';
+import store from '../redux/store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../static/css/style.css';
 
 export default class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
-        let pageProps = {}
+        let pageProps = {};
 
         if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx)
+            pageProps = await Component.getInitialProps(ctx);
         }
 
-        return { pageProps }
+        return { pageProps };
     }
 
     render () {
-        const { Component, pageProps } = this.props
+        const { Component, pageProps } = this.props;
 
         return (
             <Container>
-                <Component {...pageProps} />
+                <Provider store={store}>
+                    <Component {...pageProps} />
+                </Provider>
             </Container>
-        )
+        );
     }
 }

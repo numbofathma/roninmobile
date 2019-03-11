@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "roninmobile",
+  "alias": [
+    "www.roninmobile.eu",
+    "roninmobile.eu"
+  ],
+  "builds": [
+    { "src": "next.config.js", "use": "@now/next" }
+  ]
+}
