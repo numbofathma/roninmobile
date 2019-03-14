@@ -15,7 +15,7 @@ const LinkIcon = (props: IconProps) => {
         <a href={props.url} title={props.title} target='_blank'>
             <FaIcon
                 icon={props.icon}
-                className='bigger'
+                className='big'
             />
         </a>
     );

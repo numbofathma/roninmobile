@@ -5,9 +5,9 @@ import {SlideHeader} from '../common/Style/style';
 import {ContactFormErrorsInterface} from '../../interfaces/interfaces';
 import ContactFormValidator from '../../services/ContactFormValidator';
 import Swal from 'sweetalert2';
-import Loader from 'react-loader-spinner';
 import EmailService from '../../services/EmailService';
 import SocialListContainer from '../SocialList/SocialListContainer';
+import GridLoader from 'react-spinners/GridLoader';
 
 interface ContactFormState {
     name: string;
@@ -131,12 +131,13 @@ class Contact extends React.Component<any, ContactFormState> {
                         </Row>
                         <Row>
                             <Col>
+                                <br /><br /><br />
                                 <LoaderStyled>
-                                    <Loader
-                                        type='Oval'
-                                        color='#555555'
-                                        height='250'
-                                        width='250'
+                                    <GridLoader
+                                        sizeUnit={'px'}
+                                        size={100}
+                                        color={'#4999C3'}
+                                        loading={true}
                                     />
                                 </LoaderStyled>
                             </Col>
