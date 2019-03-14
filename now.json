@@ -6,6 +6,6 @@
     "roninmobile.eu"
   ],
   "builds": [
-    { "src": "next.config.js", "use": "@now/next" }
+    { "src": "package.json", "use": "@now/next" }
   ]
 }
