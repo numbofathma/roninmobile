@@ -6,6 +6,10 @@
     "roninmobile.eu"
   ],
   "builds": [
-    { "src": "package.json", "use": "@now/next" }
+    { "src": "package.json", "use": "@now/next" },
+    { "src": "app/server.js", "use": "@now/node"}
+  ],
+  "routes": [
+    { "src": "/project/(.*)", "dest": "/project/$1" }
   ]
 }
