@@ -7,9 +7,9 @@
   ],
   "builds": [
     { "src": "package.json", "use": "@now/next" },
-    { "src": "app/server.js", "use": "@now/node"}
+    { "src": "app/*.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/project/(.*)", "dest": "/project/$1" }
+    {"src": "/project/(.*)", "dest": "/project/$1"}
   ]
 }
