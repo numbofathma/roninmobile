@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Ronin Mobile website",
   "repository": "https://github.com/numbofathma/roninmobile.git",
-  "main": "index.js",
+  "main": "app/server.js",
   "scripts": {
-    "dev": "node app/server.js",
+    "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node app/server.js",
+    "start": "next start",
     "now-build": "npm run build",
     "deploy": "now --name roninmobile"
   },
@@ -26,7 +26,6 @@
     "next": "canary",
     "next-compose-plugins": "^2.1.1",
     "next-images": "^1.1.1",
-    "next-routes": "^1.4.2",
     "react": "^16.8.3",
     "react-device-detect": "^1.6.2",
     "react-dom": "^16.8.3",

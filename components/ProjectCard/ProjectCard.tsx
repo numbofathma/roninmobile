@@ -57,7 +57,10 @@ const ProjectCard = (props: ProjectCardProps) => (
                 </ProjectCardSecondaryHeader>
 
                 <br />
-                <Link href={`/project/${props.project.slug}`}>
+                <Link
+                    href={`/project/?slug=${props.project.slug}`}
+                    as={`/project/${props.project.slug}`}
+                >
                     <a>details &raquo;</a>
                 </Link>
 
