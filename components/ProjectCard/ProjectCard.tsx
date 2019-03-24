@@ -15,8 +15,8 @@ interface ProjectCardProps {
 const ProjectCard = (props: ProjectCardProps) => (
     <ProjectCardWrapper>
         <Flippy
-            flipOnHover={true} // default false
-            flipOnClick={false} // default false
+            flipOnHover={false} // default false
+            flipOnClick={true} // default false
             flipDirection='horizontal' // horizontal or vertical
             style={{}}
         >

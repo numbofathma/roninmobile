@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, {Head, Main, NextScript} from 'next/document';
+import {ServerStyleSheet} from 'styled-components';
 import ReactGA from 'react-ga';
 
 export default class MyDocument extends Document {
@@ -34,6 +34,10 @@ export default class MyDocument extends Document {
             <html>
                 <Head>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+                    <meta property='og:url' content='https://roninmobile.eu' />
+                    <meta property='og:type' content='website' />
+                    <meta property='og:title' content='Ronin Mobile Website' />
+                    <meta property='og:description' content='We are Ronin Mobile. We build hyper casual mobile and Facebook games. Check our site!' />
                     <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' />
                 </Head>
                 <body>
