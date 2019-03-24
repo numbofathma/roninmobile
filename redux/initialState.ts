@@ -17,7 +17,7 @@ const initialState: State = {
                 mobileGooglePlay: 'market://details?id=eu.roninmobile.paws',
                 mobileAppStore: 'itms-apps://itunes.apple.com/us/app/paws!-live-to-purr/id989570749',
                 facebook: '',
-                website: ''
+                website: 'http://playpaws.eu'
             },
             portfolio: [
                 '/static/portfolio/playpaws/1.jpg',
@@ -29,11 +29,10 @@ const initialState: State = {
                 '/static/portfolio/playpaws/7.jpg',
             ],
             portfolioSettings: {
-                dots: true,
                 infinite: true,
                 speed: 500,
-                slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToShow: 1,
+                slidesToScroll: 1,
                 responsive: [
                     {
                         breakpoint: 992,
@@ -56,7 +55,7 @@ const initialState: State = {
                 mobileGooglePlay: 'market://details?id=eu.roninmobile.giftrush',
                 mobileAppStore: 'itms-apps://itunes.apple.com/us/app/save-christmas-gift-rush/id1069632749',
                 facebook: '',
-                website: ''
+                website: 'http://giftrush.eu'
             },
             portfolio: [
                 '/static/portfolio/giftrush/1.jpg',
@@ -68,11 +67,10 @@ const initialState: State = {
                 '/static/portfolio/giftrush/7.jpg',
             ],
             portfolioSettings: {
-                dots: true,
                 infinite: true,
                 speed: 500,
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 3,
+                slidesToScroll: 3,
                 responsive: [
                     {
                         breakpoint: 992,
@@ -103,7 +101,7 @@ const initialState: State = {
                 mobileGooglePlay: 'market://details?id=eu.roninmobile.bubblewrap',
                 mobileAppStore: 'itms-apps://itunes.apple.com/us/app/pop-pop-bubble-wrap/id1263224379',
                 facebook: '',
-                website: ''
+                website: 'http://popbub.eu'
             },
             portfolio: [
                 '/static/portfolio/popbub/1.jpg',
@@ -114,11 +112,10 @@ const initialState: State = {
                 '/static/portfolio/popbub/6.jpg',
             ],
             portfolioSettings: {
-                dots: true,
                 infinite: true,
                 speed: 500,
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 3,
+                slidesToScroll: 3,
                 responsive: [
                     {
                         breakpoint: 992,

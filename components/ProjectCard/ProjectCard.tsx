@@ -18,18 +18,13 @@ const ProjectCard = (props: ProjectCardProps) => (
             flipOnHover={true} // default false
             flipOnClick={false} // default false
             flipDirection='horizontal' // horizontal or vertical
-            style={{
-                height: '365px'
-            }}
+            style={{}}
         >
             <FrontSide
                 style={{
                     backgroundColor: props.colorFront,
                     textAlign: 'center',
                     cursor: 'pointer',
-                    height: 'auto',
-                    minHeight: '365px',
-                    paddingTop: '25px'
                 }}
             >
                 <RoundImage
@@ -40,9 +35,6 @@ const ProjectCard = (props: ProjectCardProps) => (
             <BackSide
                 style={{
                     backgroundColor: props.colorBack,
-                    height: 'auto',
-                    minHeight: '365px',
-                    paddingTop: '25px',
                 }}
             >
                 <RoundImage
@@ -57,8 +49,16 @@ const ProjectCard = (props: ProjectCardProps) => (
                 </ProjectCardSecondaryHeader>
 
                 <br />
+                <a
+                    target='_blank'
+                    href={props.project.links.website}
+                >&laquo; site</a>
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
                 <Link
-                    href={`/project/?slug=${props.project.slug}`}
+                    prefetch
+                    href={`/project?slug=${props.project.slug}`}
                     as={`/project/${props.project.slug}`}
                 >
                     <a>details &raquo;</a>

@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { ProjectDetailsWrapper, SliderWrapper} from './style';
+import { ProjectDetailsWrapper } from './style';
 import {Col, Container, Row} from 'reactstrap';
 import {SlideHeader} from '../common/Style/style';
 import {Project} from '../../redux/state';
 import {StaticLogo} from '../common/Logo';
 import ProjectLink from '../ProjectLink';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Carousel from '../common/Carousel/Carousel';
 
 interface ProjectDetailsProps {
     project: Project;
@@ -23,13 +21,10 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
             </Row>
             <Row>
                 <Col>
-                    <SliderWrapper>
-                        <Slider {...props.project.portfolioSettings}>
-                            {props.project.portfolio.map( (src, index ) => (
-                                <img key={index} src={src} title={props.project.title} />
-                            ))}
-                        </Slider>
-                    </SliderWrapper>
+                    <Carousel
+                        images={props.project.portfolio}
+                        settings={props.project.portfolioSettings}
+                    />
                 </Col>
             </Row>
             <Row>

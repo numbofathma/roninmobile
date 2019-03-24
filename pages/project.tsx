@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import Head from 'next-server/head';
 import {State, Project} from '../redux/state';
 import ProjectDetails from '../components/ProjectDetails';
+import NotFound from '../components/NotFound';
 
 interface StoreProps {
     projects: Project[];
@@ -20,10 +22,15 @@ class ProjectPage extends React.Component<ProjectPageProps> {
         const project = projects.find(project => project.slug === query.slug);
 
         if (!project) {
-            return <h1>404</h1>;
+            return <NotFound />;
         }
 
-        return <ProjectDetails project={project} />;
+        return (
+            <React.Fragment>
+                <Head><title>Ronin Mobile - {project.title}</title></Head>
+                <ProjectDetails project={project} />
+            </React.Fragment>
+        );
     }
 }
 

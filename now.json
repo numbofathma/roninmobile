@@ -10,7 +10,8 @@
     { "src": "package.json", "use": "@now/next" }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/project/(?<slug>[^/]+)$", "dest": "/product?slug=$slug" }
-  ]
+    { "src": "/project/(?<slug>[^/]+)$", "dest": "/project?slug=$slug" },
+    { "src": "/static/(.*)", "dest": "/static/$1" }
+  ],
+  "regions": ["bru"]
 }
