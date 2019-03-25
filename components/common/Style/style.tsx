@@ -5,7 +5,6 @@ export const SlideHeader = styled.h1`
     padding: 2.5rem 0 ;
     font-size: 1.5rem;
     text-align: center;
-    font-weight: bold;
     color: #555555;
 
     @media (min-width: 576px) {

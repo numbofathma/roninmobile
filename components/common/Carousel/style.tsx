@@ -11,17 +11,21 @@ export const CarouselWrapper = styled.div`
     .slick-prev {
         left: -15px;
         z-index: 100000;
+        width: 50px;
+        height: 50px;
     }
 
     .slick-next {
-        right: 15px;
+        right: -15px;
         z-index: 100000;
+        width: 50px;
+        height: 50px;
     }
 
     .slick-prev:before, .slick-next:before {
         color: #000000;
         font-size: 50px;
-        text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+        text-shadow: 0px 0px 15px rgba(225, 225, 225, 1);
     }
 `;
 

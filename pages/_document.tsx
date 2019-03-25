@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
                     <meta property='og:type' content='website' />
                     <meta property='og:title' content='Ronin Mobile Website' />
                     <meta property='og:description' content='We are Ronin Mobile. We build hyper casual mobile and Facebook games. Check our site!' />
-                    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' />
+                    <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' />
                 </Head>
                 <body>
                     <Main />

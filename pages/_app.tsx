@@ -1,11 +1,13 @@
 import * as React from 'react';
 import App, { Container } from 'next/app';
 import {Provider} from 'react-redux';
+import Router from 'next/router';
+import withGA from 'next-ga';
 import store from '../redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../static/css/style.css';
 
-export default class MyApp extends App {
+class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
         let pageProps = {};
 
@@ -28,3 +30,5 @@ export default class MyApp extends App {
         );
     }
 }
+
+export default withGA('UA-61042122-7', Router)(MyApp);
