@@ -9,9 +9,8 @@ export const ProjectLinkWrapper = styled.div`
     text-align: center;
 `;
 
-export const GooglePlayLink = styled.a`
+export const StoreLink = styled.a`
     display: inline-block;
-    background-image: url(/static/img/links/googleplay.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,17 +19,17 @@ export const GooglePlayLink = styled.a`
     justify-content: center;
     align-items: center;
     margin: 5px 15px;
+    transition: 0.5s;
+
+    &:hover {
+        opacity: 0.5;
+    }
 `;
 
-export const AppStoreLink = styled.a`
-    display: inline-block;
+export const GooglePlayLink = styled(StoreLink)`
+    background-image: url(/static/img/links/googleplay.png);
+`;
+
+export const AppStoreLink = styled(StoreLink)`
     background-image: url(/static/img/links/appstore.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 115px;
-    height: inherit;
-    justify-content: center;
-    align-items: center;
-    margin: 5px 15px;
 `;

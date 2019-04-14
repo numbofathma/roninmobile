@@ -1,4 +1,5 @@
 import {combineReducers, createStore} from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import initialState from './initialState';
 import projects from './modules/projects';
 import socials from './modules/socials';
@@ -8,10 +9,10 @@ const rootReducer = combineReducers({
     socials
 });
 
-/** Store */
-const store = createStore(
-    rootReducer,
-    initialState
-);
-
-export default store;
+export const initStore = (state = initialState) => {
+    return createStore(
+        rootReducer,
+        state,
+        composeWithDevTools()
+    );
+};
