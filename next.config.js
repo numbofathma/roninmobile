@@ -29,7 +29,7 @@ module.exports = withPlugins(
       withTypescript,
       withSass,
       withCSS,
-      [withTM, { transpileModules: ['react-flippy', 'react-loader-spinner'] }]
+      [withTM, { transpileModules: ['react-flippy'] }]
     ],
     nextConfig
 );

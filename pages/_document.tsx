@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Document, {Head, Main, NextScript} from 'next/document';
 import {ServerStyleSheet} from 'styled-components';
-import ReactGA from 'react-ga';
 
 export default class MyDocument extends Document {
     static async getInitialProps (ctx) {
@@ -24,11 +23,6 @@ export default class MyDocument extends Document {
         }
     }
 
-    componentDidMount(): void {
-        ReactGA.initialize('UA-61042122-7');
-        ReactGA.pageview(window.location.pathname + window.location.search);
-    }
-
     render() {
         return (
             <html>
@@ -39,6 +33,7 @@ export default class MyDocument extends Document {
                     <meta property='og:title' content='Ronin Mobile Website' />
                     <meta property='og:description' content='We are Ronin Mobile. We build hyper casual mobile and Facebook games. Check our site!' />
                     <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' />
+                    <title>We are Ronin Mobile</title>
                 </Head>
                 <body>
                     <Main />
