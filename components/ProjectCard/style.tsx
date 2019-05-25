@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const ProjectCardWrapper = styled.div`
     margin-top: 2rem;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,.5);
+    }
 `;
 
 export const ProjectCardHeader = styled.h2`
