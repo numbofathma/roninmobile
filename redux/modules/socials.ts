@@ -11,7 +11,7 @@ export const getSocials = (): AnyAction => ({
 });
 
 /** Reducer */
-const socials = (state: SocialItem[] = initialState.socials, action) => {
+const socials = (state: SocialItem[] = initialState.socials, action: AnyAction) => {
     switch (action.type) {
         case GET_SOCIALS:
             return state;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RoundImage from '../common/RoundImage';
-import Flippy, {BackSide, FrontSide} from 'react-flippy';
+import Flippy, { FrontSide, BackSide } from '../Flippy';
 import {ProjectCardSecondaryHeader, ProjectCardWrapper} from './style';
 import ProjectLink from '../ProjectLink';
 import Link from 'next/link';
@@ -26,7 +26,9 @@ const ProjectCard = (props: ProjectCardProps) => (
                     textAlign: 'center',
                     cursor: 'pointer',
                 }}
-            >
+                animationDuration={600}
+                isFlipped={true}
+        >
                 <RoundImage
                     src={props.project.image}
                     title={props.project.title}
@@ -36,6 +38,8 @@ const ProjectCard = (props: ProjectCardProps) => (
                 style={{
                     backgroundColor: props.colorBack,
                 }}
+                animationDuration={600}
+                isFlipped={false}
             >
                 <RoundImage
                     src={props.project.image}

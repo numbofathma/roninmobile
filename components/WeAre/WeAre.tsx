@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {WeAreWrapper} from './style';
-import { Container, Row, Col } from 'reactstrap';
-import {SlideButton, SlideHeader} from '../common/Style/style';
+import {Container, Row, Col} from 'reactstrap';
+import {SlideButton} from '../common/Style/style';
 import {Logo} from '../common/Logo';
 import SocialListContainer from '../SocialList/SocialListContainer';
 
@@ -14,13 +14,22 @@ const WeAre = (props: WeAreProps) => (
         <Container>
             <Row>
                 <Col>
-                    <SlideHeader>WE ARE RONIN!</SlideHeader>
-                    <br />
-                    <br />
-                    <Logo />
-                    <br />
-                    <br />
-                    <SocialListContainer />
+                    <Logo/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <br/>
+                    <br/>
+                    <p>Hello, stranger and welcome to the Ronin Mobile website!</p>
+                    <p>Check our portfolio below!</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <br/>
+                    <br/>
+                    <SocialListContainer/>
                     <SlideButton size='lg' onClick={props.onClick}>OUR WORK</SlideButton>
                 </Col>
             </Row>

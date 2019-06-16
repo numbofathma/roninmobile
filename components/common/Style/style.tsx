@@ -22,8 +22,17 @@ export const SlideHeader = styled.h1`
 `;
 
 export const SlideButton = styled(Button)`
+    font-family: 'Lato', sans-serif;
     background-color: transparent;
     color: #6C757D;
     font-weight: bold;
     margin: 3rem 0;
+`;
+
+export const SlideFooter = styled.div`
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex: 1 1 100%;
+    height: 100%;
 `;

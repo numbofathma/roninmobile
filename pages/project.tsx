@@ -13,7 +13,7 @@ interface StoreProps {
 type ProjectPageProps = StoreProps;
 
 class ProjectPage extends React.Component<ProjectPageProps> {
-    static async getInitialProps ({ query }) {
+    static async getInitialProps ({ query }: any) {
         return { query };
     }
 

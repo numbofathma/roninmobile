@@ -1,9 +1,7 @@
 const withPlugins = require('next-compose-plugins');
-const withTypescript = require('@zeit/next-typescript');
 const withImages = require('next-images');
 const withCSS = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
-const withTM = require('next-plugin-transpile-modules');
 
 const nextConfig = {
     target: 'serverless',
@@ -25,11 +23,9 @@ const nextConfig = {
 
 module.exports = withPlugins(
     [
-      withImages,
-      withTypescript,
-      withSass,
-      withCSS,
-      [withTM, { transpileModules: ['react-flippy'] }]
+        withImages,
+        withSass,
+        withCSS
     ],
     nextConfig
 );

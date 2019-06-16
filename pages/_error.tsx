@@ -2,7 +2,7 @@ import * as React from 'react';
 import Router from 'next/router';
 
 class ErrorPage extends React.Component {
-    static async getInitialProps({ res }) {
+    static async getInitialProps({ res }: any) {
         if (res) {
             res.writeHead(302, {
                 Location: '/404'

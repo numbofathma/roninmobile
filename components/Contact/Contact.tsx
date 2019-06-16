@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {ContactWrapper, LoaderStyled} from './style';
-import { Container, Row, Col, Form, FormGroup, Input, Button, FormText, FormFeedback } from 'reactstrap';
-import {SlideHeader} from '../common/Style/style';
+import {Container, Row, Col, Form, FormGroup, Input, Button, FormText, FormFeedback} from 'reactstrap';
+import {SlideFooter, SlideHeader} from '../common/Style/style';
 import {ContactFormErrorsInterface} from '../../interfaces/interfaces';
 import ContactFormValidator from '../../services/ContactFormValidator';
 import Swal from 'sweetalert2';
 import EmailService from '../../services/EmailService';
 import SocialListContainer from '../SocialList/SocialListContainer';
-import GridLoader from 'react-spinners/GridLoader';
+import {GridLoader} from 'react-spinners';
 
 interface ContactFormState {
     name: string;
@@ -21,7 +21,7 @@ interface ContactFormState {
 class Contact extends React.Component<any, ContactFormState> {
     private contactFormValidator: ContactFormValidator;
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
 
         this.state = {
@@ -40,85 +40,87 @@ class Contact extends React.Component<any, ContactFormState> {
         const {name, email, message, errors} = this.state;
 
         const contactForm = <ContactWrapper>
-                <Container>
-                    <Row>
-                        <Col>
-                            <SlideHeader>CONTACT US!</SlideHeader>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <p>It's easy to get in contact with us, just drop us a line and we will get in touch as soon as possible.</p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Form onSubmit={this.sendEmail}>
-                                <Row form>
-                                    <Col md={6}>
-                                        <FormGroup>
-                                            <Input
-                                                type='text'
-                                                name='name'
-                                                id='name'
-                                                value={name}
-                                                bsSize='lg'
-                                                placeholder='NAME'
-                                                onChange={this.handleChange}
-                                                invalid={!!errors.name}
-                                            />
-                                            <FormText>Tell us your name.</FormText>
-                                            <FormFeedback>{errors.name}</FormFeedback>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col md={6}>
-                                        <FormGroup>
-                                            <Input
-                                                type='email'
-                                                name='email'
-                                                id='email'
-                                                value={email}
-                                                bsSize='lg'
-                                                placeholder='EMAIL'
-                                                onChange={this.handleChange}
-                                                invalid={!!errors.email}
-                                            />
-                                            <FormText>We need your email to contanct you back.</FormText>
-                                            <FormFeedback>{errors.email}</FormFeedback>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-                                <FormGroup>
-                                    <Input
-                                        type='textarea'
-                                        name='message'
-                                        id='message'
-                                        value={message}
-                                        bsSize='lg'
-                                        placeholder='MESSAGE'
-                                        rows={10}
-                                        onChange={this.handleChange}
-                                        invalid={!!errors.message}
-                                    />
-                                    <FormText>Your message to us.</FormText>
-                                    <FormFeedback>{errors.message}</FormFeedback>
-                                </FormGroup>
-                                <Button size='lg'>SEND MESSAGE</Button>
-                            </Form>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <br />
-                            <SocialListContainer />
-                            <br />
-                            <div className={'small text-center'}>
-                                Copyright &copy; Ronin Mobile
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </ContactWrapper>;
+            <Container>
+                <Row>
+                    <Col>
+                        <SlideHeader>CONTACT US!</SlideHeader>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <p>It's easy to get in contact with us, just drop us a line and we will get in touch as soon as possible.</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Form onSubmit={this.sendEmail}>
+                            <Row>
+                                <Col md={6}>
+                                    <FormGroup>
+                                        <Input
+                                            type='text'
+                                            name='name'
+                                            id='name'
+                                            value={name}
+                                            bsSize='lg'
+                                            placeholder='NAME'
+                                            onChange={this.handleChange}
+                                            invalid={!!errors.name}
+                                        />
+                                        <FormText>Tell us your name.</FormText>
+                                        <FormFeedback>{errors.name}</FormFeedback>
+                                    </FormGroup>
+                                </Col>
+                                <Col md={6}>
+                                    <FormGroup>
+                                        <Input
+                                            type='email'
+                                            name='email'
+                                            id='email'
+                                            value={email}
+                                            bsSize='lg'
+                                            placeholder='EMAIL'
+                                            onChange={this.handleChange}
+                                            invalid={!!errors.email}
+                                        />
+                                        <FormText>We need your email to contanct you back.</FormText>
+                                        <FormFeedback>{errors.email}</FormFeedback>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+                            <FormGroup>
+                                <Input
+                                    type='textarea'
+                                    name='message'
+                                    id='message'
+                                    value={message}
+                                    bsSize='lg'
+                                    placeholder='MESSAGE'
+                                    rows={10}
+                                    onChange={this.handleChange}
+                                    invalid={!!errors.message}
+                                />
+                                <FormText>Your message to us.</FormText>
+                                <FormFeedback>{errors.message}</FormFeedback>
+                            </FormGroup>
+                            <Button size='lg'>SEND MESSAGE</Button>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+            <SlideFooter>
+                <div>
+                    <br/>
+                    <SocialListContainer/>
+                    <br/>
+                    <div className={'small text-center'}>
+                        Copyright &copy; Ronin Mobile
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+            </SlideFooter>
+        </ContactWrapper>;
 
         if (this.state.isSending) {
             return (
@@ -131,7 +133,7 @@ class Contact extends React.Component<any, ContactFormState> {
                         </Row>
                         <Row>
                             <Col>
-                                <br /><br /><br />
+                                <br/><br/><br/>
                                 <LoaderStyled>
                                     <GridLoader
                                         sizeUnit={'px'}
@@ -152,14 +154,14 @@ class Contact extends React.Component<any, ContactFormState> {
         );
     }
 
-    private handleChange = (e) => {
-        const contactFormFieldsValues = {};
+    private handleChange = (e: any) => {
+        const contactFormFieldsValues: any = {};
         contactFormFieldsValues[e.target.name] = e.target.value;
 
         this.setState(contactFormFieldsValues);
-    }
+    };
 
-    private sendEmail = async (e) => {
+    private sendEmail = async (e: any) => {
         e.preventDefault();
 
         this.setState({
@@ -198,7 +200,7 @@ class Contact extends React.Component<any, ContactFormState> {
             });
         }
 
-    }
+    };
 }
 
 export default Contact;

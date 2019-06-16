@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ProjectCardWrapper = styled.div`
     margin-top: 2rem;
-    transition: all 0.5s ease-in-out;
-    &:hover {
+    transition: all 0.25s ease-in-out;
+    div.flippy-card:hover {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,.5);
     }
 `;

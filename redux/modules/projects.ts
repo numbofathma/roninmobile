@@ -11,7 +11,7 @@ export const getProjects = (): AnyAction => ({
 });
 
 /** Reducer */
-const projects = (state: Project[] = initialState.projects, action) => {
+const projects = (state: Project[] = initialState.projects, action: AnyAction) => {
     switch (action.type) {
         case GET_PROJECTS:
             return state;

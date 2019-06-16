@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Logo = styled.div`
-    background-image: url(/static/img/ronin.svg);
-    max-width: 628px;
-    height: 390px;
+    background-image: url(/static/img/ronin-round.png);
+    width: 325px;
+    height: 325px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

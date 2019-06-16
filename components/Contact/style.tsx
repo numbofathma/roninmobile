@@ -4,6 +4,8 @@ export const ContactWrapper = styled.div.attrs({ id: 'contact-us'})`
     background: #FAFAFA;
     font-family: 'Lato', sans-serif;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const ContactLogoWrapper = styled.div`
