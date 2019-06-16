@@ -5,12 +5,18 @@ import {State, Project} from '../redux/state';
 import ProjectDetails from '../components/ProjectDetails';
 import NotFound from '../components/NotFound';
 
+interface ComponentProps {
+    isMobile: boolean;
+    isAndroid: boolean;
+    isiOS: boolean;
+}
+
 interface StoreProps {
     projects: Project[];
     query: any;
 }
 
-type ProjectPageProps = StoreProps;
+type ProjectPageProps = ComponentProps & StoreProps;
 
 class ProjectPage extends React.Component<ProjectPageProps> {
     static async getInitialProps ({ query }: any) {
@@ -18,7 +24,7 @@ class ProjectPage extends React.Component<ProjectPageProps> {
     }
 
     render () {
-        const { projects, query} = this.props;
+        const { projects, query, isMobile, isAndroid, isiOS} = this.props;
         const project = projects.find(project => project.slug === query.slug);
 
         if (!project) {
@@ -28,7 +34,12 @@ class ProjectPage extends React.Component<ProjectPageProps> {
         return (
             <React.Fragment>
                 <Head><title>Ronin Mobile - {project.title}</title></Head>
-                <ProjectDetails project={project} />
+                <ProjectDetails
+                    isMobile={isMobile}
+                    isAndroid={isAndroid}
+                    isiOS={isiOS}
+                    project={project}
+                />
             </React.Fragment>
         );
     }

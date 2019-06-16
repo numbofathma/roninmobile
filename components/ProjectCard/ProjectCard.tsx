@@ -7,6 +7,9 @@ import Link from 'next/link';
 import {Project} from '../../redux/state';
 
 interface ProjectCardProps {
+    isMobile: boolean;
+    isAndroid: boolean;
+    isiOS: boolean;
     project: Project;
     colorFront: string;
     colorBack: string;
@@ -69,6 +72,8 @@ const ProjectCard = (props: ProjectCardProps) => (
                 </Link>
 
                 <ProjectLink
+                    isAndroid={props.isAndroid}
+                    isiOS={props.isiOS}
                     title={props.project.title}
                     links={props.project.links}
                 />

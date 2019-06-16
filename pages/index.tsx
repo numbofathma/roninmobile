@@ -5,29 +5,37 @@ import scrollToElement from 'scroll-to-element';
 import OurWorkContainer from '../components/OurWork';
 import Head from 'next-server/head';
 
-const FullpageWrapper = () => (
-    <React.Fragment>
-        <Head><title>We are Ronin Mobile</title></Head>
-        <WeAre onClick={() => {
-            scrollToElement('#our-work', {
-                offset: 0,
-                duration: 500
-            });
-        }} />
-        <OurWorkContainer onClick={() => {
-            scrollToElement('#contact-us', {
-                offset: 0,
-                duration: 500
-            });
-        }} />
-        <Contact />
-    </React.Fragment>
-);
+interface HomePageProps {
+    isMobile: boolean;
+    isAndroid: boolean;
+    isiOS: boolean;
+}
 
-class HomePage extends React.Component {
+class HomePage extends React.Component<HomePageProps> {
     render() {
         return (
-            <FullpageWrapper />
+            <React.Fragment>
+                <Head><title>We are Ronin Mobile</title></Head>
+                <WeAre
+                    isMobile={this.props.isMobile}
+                    onClick={() => {
+                        scrollToElement('#our-work', {
+                            offset: 0,
+                            duration: 500
+                        });
+                    }} />
+                <OurWorkContainer
+                    isMobile={this.props.isMobile}
+                    isAndroid={this.props.isAndroid}
+                    isiOS={this.props.isiOS}
+                    onClick={() => {
+                        scrollToElement('#contact-us', {
+                            offset: 0,
+                            duration: 500
+                        });
+                    }} />
+                <Contact />
+            </React.Fragment>
         );
     }
 }

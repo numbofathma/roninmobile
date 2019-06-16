@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const Logo = styled.div`
+export const Logo = styled.div<{isMobile: boolean}>`
     background-image: url(/static/img/ronin-round.png);
-    width: 325px;
-    height: 325px;
+    width: ${(props) => props.isMobile ? '225px' : '325px'};
+    height: ${(props) => props.isMobile ? '225px' : '325px'};
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

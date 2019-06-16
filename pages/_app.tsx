@@ -2,13 +2,12 @@ import * as React from 'react';
 import App, { Container } from 'next/app';
 import {Provider} from 'react-redux';
 import Router from 'next/router';
-// @ts-ignore
 import withRedux from 'next-redux-wrapper';
-// @ts-ignore
 import withGA from 'next-ga';
 import {initStore} from '../redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../static/css/style.css';
+import {isMobile} from '../utils/utils';
 
 class MyApp extends App <any, any> {
     static async getInitialProps({ Component, ctx }: any) {
@@ -18,16 +17,30 @@ class MyApp extends App <any, any> {
             pageProps =  Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
         }
 
-        return { pageProps };
+        const userAgent = ctx.req
+            ? ctx.req.headers['user-agent']
+            : navigator.userAgent;
+
+        return {
+            pageProps,
+            isMobile: isMobile(userAgent).isHandHeld(),
+            isAndroid: isMobile(userAgent).isAndroid(),
+            isiOS: isMobile(userAgent).isiOS()
+        };
     }
 
     render () {
-        const { Component, pageProps, store } = this.props;
+        const { Component, pageProps, store, isMobile, isAndroid, isiOS } = this.props;
 
         return (
             <Container>
                 <Provider store={store}>
-                    <Component {...pageProps} />
+                    <Component
+                        {...pageProps}
+                        isMobile={isMobile}
+                        isAndroid={isAndroid}
+                        isiOS={isiOS}
+                    />
                 </Provider>
             </Container>
         );

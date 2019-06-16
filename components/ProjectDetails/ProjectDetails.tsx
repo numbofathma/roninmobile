@@ -8,6 +8,9 @@ import ProjectLink from '../ProjectLink';
 import Carousel from '../common/Carousel/Carousel';
 
 interface ProjectDetailsProps {
+    isMobile: boolean;
+    isAndroid: boolean;
+    isiOS: boolean;
     project: Project;
 }
 
@@ -37,6 +40,8 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
                 <Col>
                     <br /><br /><br /><br />
                     <ProjectLink
+                        isAndroid={props.isAndroid}
+                        isiOS={props.isiOS}
                         title={props.project.title}
                         links={props.project.links}
                     />

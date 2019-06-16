@@ -6,35 +6,38 @@ import {Logo} from '../common/Logo';
 import SocialListContainer from '../SocialList/SocialListContainer';
 
 interface WeAreProps {
+    isMobile: boolean;
     onClick: () => void;
 }
 
-const WeAre = (props: WeAreProps) => (
-    <WeAreWrapper>
-        <Container>
-            <Row>
-                <Col>
-                    <Logo/>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <br/>
-                    <br/>
-                    <p>Hello, stranger and welcome to the Ronin Mobile website!</p>
-                    <p>Check our portfolio below!</p>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <br/>
-                    <br/>
-                    <SocialListContainer/>
-                    <SlideButton size='lg' onClick={props.onClick}>OUR WORK</SlideButton>
-                </Col>
-            </Row>
-        </Container>
-    </WeAreWrapper>
-);
+const WeAre = (props: WeAreProps) => {
+    return (
+        <WeAreWrapper>
+            <Container>
+                <Row>
+                    <Col>
+                        <Logo isMobile={props.isMobile} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <br/>
+                        <br/>
+                        <p>Hello, stranger and welcome to the Ronin Mobile website!</p>
+                        <p>Check our portfolio below!</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <br/>
+                        <br/>
+                        <SocialListContainer/>
+                        <SlideButton size='lg' onClick={props.onClick}>OUR WORK</SlideButton>
+                    </Col>
+                </Row>
+            </Container>
+        </WeAreWrapper>
+    )
+};
 
 export default WeAre;

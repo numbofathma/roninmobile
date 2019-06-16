@@ -4,6 +4,9 @@ import OurWork from './OurWork';
 import {State, Project} from '../../redux/state';
 
 interface ComponentProps {
+    isMobile: boolean;
+    isAndroid: boolean;
+    isiOS: boolean;
     onClick: () => void;
 }
 
@@ -17,6 +20,9 @@ class OurWorkContainer extends React.Component<OurWorkContainerProps> {
     public render() {
         return (
             <OurWork
+                isMobile={this.props.isMobile}
+                isAndroid={this.props.isAndroid}
+                isiOS={this.props.isiOS}
                 onClick={this.props.onClick}
                 projects={this.props.projects}
             />
