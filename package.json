@@ -7,8 +7,7 @@
     "dev": "node app/server.js",
     "build": "next build",
     "start": "next start",
-    "now-build": "npm run build",
-    "deploy": "now --name roninmobile --regions bru"
+    "now-build": "npm run build"
   },
   "keywords": [],
   "author": "",
