@@ -25,7 +25,7 @@ export const CarouselWrapper = styled.div`
     .slick-prev:before, .slick-next:before {
         color: #000000;
         font-size: 50px;
-        text-shadow: 0px 0px 15px rgba(225, 225, 225, 1);
+        text-shadow: 0px 0px 15px rgba(225, 225, 225, 0.75);
     }
 `;
 

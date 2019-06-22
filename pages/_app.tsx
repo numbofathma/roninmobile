@@ -1,4 +1,5 @@
 import * as React from 'react';
+import MobileDetect from 'mobile-detect';
 import App, { Container } from 'next/app';
 import {Provider} from 'react-redux';
 import Router from 'next/router';
@@ -7,7 +8,6 @@ import withGA from 'next-ga';
 import {initStore} from '../redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../static/css/style.css';
-import {isMobile} from '../utils/utils';
 
 class MyApp extends App <any, any> {
     static async getInitialProps({ Component, ctx }: any) {
@@ -17,15 +17,13 @@ class MyApp extends App <any, any> {
             pageProps =  Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
         }
 
-        const userAgent = ctx.req
-            ? ctx.req.headers['user-agent']
-            : navigator.userAgent;
+        const mobileDetect = ctx.req  ? new MobileDetect(ctx.req.headers['user-agent'])  : new MobileDetect(navigator.userAgent);
 
         return {
             pageProps,
-            isMobile: isMobile(userAgent).isHandHeld(),
-            isAndroid: isMobile(userAgent).isAndroid(),
-            isiOS: isMobile(userAgent).isiOS()
+            isMobile: mobileDetect.mobile() !== null,
+            isAndroid: mobileDetect.os() === 'AndroidOS',
+            isiOS: mobileDetect.os() == 'iOS'
         };
     }
 
