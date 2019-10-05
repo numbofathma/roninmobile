@@ -6,7 +6,7 @@ const FaIcon = styled(FontAwesomeIcon)`
     cursor: pointer;
     transition: all 1s;
     &:hover {
-        color: #4999C3;
+        color: #FFFFFF;
     }
 `;
 

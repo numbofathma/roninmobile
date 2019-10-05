@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {SlideHeader} from '../common/Style/style';
 
 export const ContactWrapper = styled.div.attrs({ id: 'contact-us'})`
     background: #FAFAFA;
@@ -6,6 +7,15 @@ export const ContactWrapper = styled.div.attrs({ id: 'contact-us'})`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: #FFFFFF;
+
+    ${SlideHeader} {
+        color: #FFFFFF;
+    }
+
+    .form-text {
+        color: #FFFFFF !important;
+    }
 `;
 
 export const ContactLogoWrapper = styled.div`

@@ -33,6 +33,9 @@ class MyApp extends App <any, any> {
         return (
             <Container>
                 <Provider store={store}>
+                    <div id='stars' />
+                    <div id='stars2' />
+                    <div id='stars3' />
                     <Component
                         {...pageProps}
                         isMobile={isMobile}
