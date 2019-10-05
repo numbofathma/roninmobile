@@ -47,7 +47,7 @@ const initialState: State = {
         {
             title: 'Save Christmas: Gift Rush',
             slug: 'save-christmas-gift-rush',
-            description: 'Christmas-themed game, developed using JavaScript and the Phaser Framework, available on both Android and iOS platform.',
+            description: 'Christmas-themed game, developed using Typescript and the Phaser Framework, available on both Android and iOS platform.',
             image: '/static/img/apps/giftrush.png',
             links: {
                 googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.giftrush',
@@ -92,7 +92,7 @@ const initialState: State = {
         {
             title: 'Pop Pop Bubble Wrap',
             slug: 'pop-pop-bubble-wrap',
-            description: 'Pop Pop Bubble Wrap is a mobile game developed in JavaScript with Phaser Framework, available on both Android and iOS ' +
+            description: 'Pop Pop Bubble Wrap is a mobile game developed in Typescript with Phaser Framework, available on both Android and iOS ' +
                 'platform. The application is a bubble wrap popping simulator that can be used for reducing one\' stress and anxiety.',
             image: 'static/img/apps/popbub.png',
             links: {
@@ -110,6 +110,52 @@ const initialState: State = {
                 '/static/portfolio/popbub/4.jpg',
                 '/static/portfolio/popbub/5.jpg',
                 '/static/portfolio/popbub/6.jpg',
+            ],
+            portfolioSettings: {
+                infinite: true,
+                speed: 500,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                ]
+            }
+        },
+        {
+            title: 'Twin Dots Challenge',
+            slug: 'twin-dots-challenge',
+            description: 'Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both ' +
+                'Android and iOS platform. For building the game for both platforms (Android & iOS) I\'ve used the Cordova Project.',
+            image: 'static/img/apps/twindots.png',
+            links: {
+                googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.twindots',
+                appStore: 'https://apps.apple.com/us/app/twin-dots-challenge/id1481706861',
+                mobileGooglePlay: 'market://details?id=eu.roninmobile.twindots',
+                mobileAppStore: 'itms-apps://itunes.apple.com/us/app/twin-dots-challenge/id1481706861',
+                facebook: '',
+                website: ''
+            },
+            portfolio: [
+                '/static/portfolio/twindots/1.jpg',
+                '/static/portfolio/twindots/2.jpg',
+                '/static/portfolio/twindots/3.jpg',
+                '/static/portfolio/twindots/4.jpg',
+                '/static/portfolio/twindots/5.jpg',
+                '/static/portfolio/twindots/6.jpg',
+                '/static/portfolio/twindots/7.jpg',
             ],
             portfolioSettings: {
                 infinite: true,

@@ -23,7 +23,7 @@ class MyApp extends App <any, any> {
             pageProps,
             isMobile: mobileDetect.mobile() !== null,
             isAndroid: mobileDetect.os() === 'AndroidOS',
-            isiOS: mobileDetect.os() == 'iOS'
+            isiOS: mobileDetect.os() === 'iOS'
         };
     }
 

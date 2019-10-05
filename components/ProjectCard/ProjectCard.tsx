@@ -56,10 +56,10 @@ const ProjectCard = (props: ProjectCardProps) => (
                 </ProjectCardSecondaryHeader>
 
                 <br />
-                <a
+                {props.project.links.website && <a
                     target='_blank'
                     href={props.project.links.website}
-                >&laquo; site</a>
+                >&laquo; site</a>}
                 &nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;
