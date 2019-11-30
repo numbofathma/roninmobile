@@ -179,7 +179,43 @@ const initialState: State = {
                     },
                 ]
             }
-        }
+        },
+        {
+            title: '13 Arrows',
+            slug: '13-arrows',
+            description: '13 Arrows is a hyper casual archery game for those moments when you are bored, built with Typescript and ' +
+                'Phaser Framework. Try your best to get a higher score using the arrows you have at your disposal.',
+            image: '/static/img/apps/arrows.png',
+            links: {
+                googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.arrows',
+                appStore: 'https://apps.apple.com/us/app/13-arrows/id1483924074',
+                mobileGooglePlay: 'market://details?id=eu.roninmobile.arrows',
+                mobileAppStore: 'itms-apps://itunes.apple.com/us/app/13-arrows/id1483924074',
+                facebook: '',
+                website: ''
+            },
+            portfolio: [
+                '/static/portfolio/arrows/1.jpg',
+                '/static/portfolio/arrows/2.jpg',
+                '/static/portfolio/arrows/3.jpg',
+                '/static/portfolio/arrows/4.jpg'
+            ],
+            portfolioSettings: {
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
+            }
+        },
     ],
     socials: [
         {
