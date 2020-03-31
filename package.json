@@ -21,7 +21,7 @@
     "bootstrap": "^4.3.1",
     "emailjs-com": "^2.3.2",
     "mobile-detect": "^1.4.3",
-    "next": "^8.1.1-canary.52",
+    "next": "^9.3.2",
     "next-ga": "^2.3.4",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "react": "^16.8.6",
