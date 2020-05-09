@@ -6,25 +6,22 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-
 app.prepare().then(() => {
-    const server = express();
+  const server = express();
 
-    server.get('/project/:slug', (req, res) => {
-        return app.render(req, res, '/project', { slug: req.params.slug })
-    });
+  server.get('/project/:slug', (req, res) => (
+    app.render(req, res, '/project', { slug: req.params.slug })
+  ));
 
-    server.get('*', (req, res) => {
-        return handle(req, res)
-    });
+  server.get('*', (req, res) => handle(req, res));
 
-    server.use(async (ctx, next) => {
-        ctx.res.statusCode = 200;
-        await next()
-    });
+  server.use(async (ctx, forwardToNext) => {
+    ctx.res.statusCode = 200;
+    await forwardToNext();
+  });
 
-    server.listen(port, err => {
-        if (err) throw err;
-        console.log(`> Ready on http://localhost:${port}`)
-    });
+  server.listen(port, (err) => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${port}`);
+  });
 });

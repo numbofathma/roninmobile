@@ -1,0 +1,46 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.smallest {
+  font-size: 0.65em;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.big {
+  font-size: 1.5em;
+}
+
+.bigger {
+  font-size: 2em;
+}
+
+.huge {
+  font-size: 3em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.rounded {
+  border-radius: 15%;
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+#we-are,
+#contact-us {
+  background: transparent;
+}
