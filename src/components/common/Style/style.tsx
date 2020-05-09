@@ -1,12 +1,24 @@
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
 
-export const SlideHeader = styled.h1`
+interface SlideHeaderStyle {
+  position?: SlideHeaderPositionString;
+}
+
+enum SlideHeaderPosition {
+  left = 'flex-start',
+  right = 'flex-end',
+  center = 'center'
+}
+
+type SlideHeaderPositionString = keyof typeof SlideHeaderPosition;
+
+export const SlideHeader = styled.h1<SlideHeaderStyle>`
     display: flex;
     align-items: center;
     padding: 2.5rem 0 ;
     font-size: 1.5rem;
-    text-align: left;
+    justify-content: ${(props) => (props.position ? SlideHeaderPosition[props.position] : 'center')};
     color: #212529;
 
     @media (min-width: 576px) {

@@ -22,7 +22,9 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
     <Container>
       <Row>
         <Col>
-          <SlideHeader>&nbsp;<Button onClick={() => Router.back()} size="lg">&larr;</Button> &nbsp;{props.project.title}</SlideHeader>
+          <SlideHeader position="left">
+            &nbsp;<Button onClick={() => Router.push('/')} size="lg">&larr;</Button> &nbsp;{props.project.title}
+          </SlideHeader>
         </Col>
       </Row>
       <Row>

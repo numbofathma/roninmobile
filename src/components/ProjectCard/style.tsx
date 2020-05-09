@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ProjectCardWrapper = styled.div`
+    text-align: center;
     margin-top: 2rem;
     transition: all 0.25s ease-in-out;
     div.flippy-card:hover {

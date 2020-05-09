@@ -41,7 +41,7 @@ const OurWork = (props: OurWorkProps) => (
         ))}
       </Row>
       <Row>
-        <Col>
+        <Col className="text-center">
           <br /><br /><br />
           <SlideButton size="lg" onClick={props.onClick}>CONTACT US</SlideButton>
         </Col>
