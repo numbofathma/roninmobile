@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node app/server.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node app/server.js",
+    "start": "next start",
     "check-types": "tsc --noemit",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src --color",
