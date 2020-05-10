@@ -15,11 +15,6 @@ app.prepare().then(() => {
 
   server.get('*', (req, res) => handle(req, res));
 
-  server.use(async (ctx, forwardToNext) => {
-    ctx.res.statusCode = 200;
-    await forwardToNext();
-  });
-
   server.listen(port, (err) => {
     if (err) throw err;
     console.log(`> Ready on http://localhost:${port}`);

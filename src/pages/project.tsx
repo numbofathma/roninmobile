@@ -33,8 +33,6 @@ class ProjectPage extends React.Component<ProjectPageProps> {
       projects, query, isMobile, isAndroid, isiOS,
     } = this.props;
 
-    console.log(projects, query);
-
     const currentProject = projects.find((project: Project) => project.slug === query.slug);
 
     if (!currentProject) {
