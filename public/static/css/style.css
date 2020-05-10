@@ -2,6 +2,9 @@ html, body {
   margin: 0;
   padding: 0;
   position: relative;
+  background: #221f1f;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 
 .italic {
@@ -34,10 +37,6 @@ html, body {
 
 .rounded {
   border-radius: 15%;
-}
-
-.mr-1 {
-  margin-right: 5px;
 }
 
 #we-are,

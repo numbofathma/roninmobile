@@ -43,7 +43,13 @@ const OurWork = (props: OurWorkProps) => (
       <Row>
         <Col className="text-center">
           <br /><br /><br />
-          <SlideButton size="lg" onClick={props.onClick}>CONTACT US</SlideButton>
+          <SlideButton
+            className="my-5"
+            size="lg"
+            onClick={props.onClick}
+          >
+            CONTACT US
+          </SlideButton>
         </Col>
       </Row>
     </Container>

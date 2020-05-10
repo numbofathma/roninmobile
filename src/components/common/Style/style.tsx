@@ -40,7 +40,6 @@ export const SlideButton = styled(Button)`
     background-color: transparent;
     color: #6C757D;
     font-weight: bold;
-    margin: 3rem 0;
 `;
 
 export const SlideFooter = styled.div`

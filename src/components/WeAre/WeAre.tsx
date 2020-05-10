@@ -31,7 +31,13 @@ const WeAre = (props: WeAreProps) => (
           <br />
           <br />
           <SocialListContainer />
-          <SlideButton size="lg" onClick={props.onClick}>OUR WORK</SlideButton>
+          <SlideButton
+            className="my-5"
+            size="lg"
+            onClick={props.onClick}
+          >
+            OUR WORK
+          </SlideButton>
         </Col>
       </Row>
     </Container>

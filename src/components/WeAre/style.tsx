@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WeAreWrapper = styled.div.attrs({ id: 'we-are' })`
-    background: #FAFAFA;
+    background: #221f1f;
     font-family: 'Lato', sans-serif;
     text-align: center;
     min-height: 100vh;

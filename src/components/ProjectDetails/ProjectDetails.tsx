@@ -1,10 +1,10 @@
 import Router from 'next/router';
 import * as React from 'react';
 import {
-  Col, Container, Row, Button,
+  Col, Container, Row,
 } from 'reactstrap';
 import { ProjectDetailsWrapper } from './style';
-import { SlideHeader } from '../common/Style/style';
+import { SlideHeader, SlideButton } from '../common/Style/style';
 import { Project } from '../../redux/state';
 import { StaticLogo } from '../common/Logo';
 import ProjectLink from '../ProjectLink';
@@ -23,7 +23,7 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
       <Row>
         <Col>
           <SlideHeader position="left">
-            &nbsp;<Button onClick={() => Router.push('/')} size="lg">&larr;</Button> &nbsp;{props.project.title}
+            &nbsp;<SlideButton onClick={() => Router.push('/')} size="lg">&larr;</SlideButton> &nbsp;{props.project.title}
           </SlideHeader>
         </Col>
       </Row>

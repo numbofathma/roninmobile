@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {
-  Container, Row, Col, Form, FormGroup, Input, Button, FormText, FormFeedback,
+  Container, Row, Col, Form, FormGroup, Input, FormText, FormFeedback,
 } from 'reactstrap';
 import Swal from 'sweetalert2';
 import { BounceLoader } from 'react-spinners';
 import { ContactWrapper, LoaderStyled } from './style';
-import { SlideFooter, SlideHeader } from '../common/Style/style';
+import { SlideFooter, SlideHeader, SlideButton } from '../common/Style/style';
 import { ContactFormErrors, ContactFormFields } from '../../interfaces/interfaces';
 import ContactFormValidator from '../../services/ContactFormValidator';
 import EmailService from '../../services/EmailService';
@@ -153,7 +153,7 @@ class Contact extends React.Component<unknown, ContactFormState> {
                   <FormText>Your message to us.</FormText>
                   <FormFeedback>{errors.message}</FormFeedback>
                 </FormGroup>
-                <Button size="lg">SEND MESSAGE</Button>
+                <SlideButton size="lg">SEND &#8227;</SlideButton>
               </Form>
             </Col>
           </Row>
