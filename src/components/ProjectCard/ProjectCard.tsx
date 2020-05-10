@@ -56,7 +56,7 @@ const ProjectCard = (props: ProjectCardProps) => (
         <br /><br />
 
         <Link
-          href="/project/[slug]"
+          href={`/project/${props.project.slug}`}
           as={`/project/${props.project.slug}`}
         >
           <a>&laquo; See More &raquo;</a>
