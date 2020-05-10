@@ -4,7 +4,7 @@
   "description": "Ronin Mobile website",
   "repository": "https://github.com/numbofathma/roninmobile.git",
   "scripts": {
-    "dev": "node app/server.js",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "check-types": "tsc --noemit",

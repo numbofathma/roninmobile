@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import Head from 'next/head';
 import { NextPageContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { State, Project } from '../redux/state';
-import ProjectDetails from '../components/ProjectDetails';
-import NotFound from '../components/NotFound';
+import { State, Project } from '../../redux/state';
+import ProjectDetails from '../../components/ProjectDetails';
+import NotFound from '../../components/NotFound';
 
 interface ComponentProps {
   isMobile: boolean;
