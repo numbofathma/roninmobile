@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from '../Image/Image';
+import Image from '@components/common/Image';
 import { RoundImageWrapper } from './style';
 
 interface RoundImageProps {

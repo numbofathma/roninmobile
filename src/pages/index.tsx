@@ -1,10 +1,10 @@
 import React from 'react';
 import scrollToElement from 'scroll-to-element';
 import Head from 'next/head';
-import WeAre from '../components/WeAre';
-import Contact from '../components/Contact';
-import OurWorkContainer from '../components/OurWork';
-import Starfield from '../components/common/Starfield';
+import WeAre from '@components/WeAre';
+import Contact from '@components/Contact';
+import OurWorkContainer from '@components/OurWork';
+import Starfield from '@components/common/Starfield';
 
 interface HomePageProps {
   isMobile: boolean;

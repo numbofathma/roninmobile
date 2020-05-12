@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DownloadLinks } from '../../interfaces/interfaces';
+import { DownloadLinks } from '@interfaces/interfaces';
 import { AppStoreLink, GooglePlayLink, ProjectLinkWrapper } from './style';
 
 interface ProjectLinkProps {

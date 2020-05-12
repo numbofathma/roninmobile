@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import ProjectCard from '@components/ProjectCard';
+import { SlideButton, SlideHeader } from '@components/common/Style/style';
+import { Project } from '@redux/state';
 import { OurWorkWrapper } from './style';
-import ProjectCard from '../ProjectCard';
-import { SlideButton, SlideHeader } from '../common/Style/style';
-import { Project } from '../../redux/state';
 
 interface OurWorkProps {
   isMobile: boolean;

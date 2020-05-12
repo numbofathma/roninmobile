@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { SocialItem } from '../../redux/state';
-import LinkIcon from '../common/LinkIcon/LinkIcon';
+import { SocialItem } from '@redux/state';
+import LinkIcon from '@components/common/LinkIcon/LinkIcon';
 import { SocialListWrapper } from './style';
 
 interface SocialListProps {

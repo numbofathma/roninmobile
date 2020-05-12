@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Link from 'next/link';
-import RoundImage from '../common/RoundImage';
+import RoundImage from '@components/common/RoundImage';
+import ProjectLink from '@components/ProjectLink';
+import { Project } from '@redux/state';
 import Flippy, { FrontSide, BackSide } from '../Flippy';
 import { ProjectCardSecondaryHeader, ProjectCardWrapper } from './style';
-import ProjectLink from '../ProjectLink';
-import { Project } from '../../redux/state';
 
 interface ProjectCardProps {
   isMobile: boolean;

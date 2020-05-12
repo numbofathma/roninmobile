@@ -1,6 +1,6 @@
 import * as React from 'react';
 import FlippyFooter from './FlippyFooter';
-import '../../../public/static/css/flippy.css';
+import '@public/static/css/flippy.css';
 
 interface FlippyProps {
   isFlipped?: boolean;

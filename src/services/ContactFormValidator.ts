@@ -1,4 +1,4 @@
-import { ContactFormErrors, ContactForm, Validator } from '../interfaces/interfaces';
+import { ContactFormErrors, ContactForm, Validator } from '@interfaces/interfaces';
 
 class ContactFormValidator implements Validator {
   private errors: ContactFormErrors;

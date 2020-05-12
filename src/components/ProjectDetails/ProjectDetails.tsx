@@ -3,12 +3,12 @@ import * as React from 'react';
 import {
   Col, Container, Row,
 } from 'reactstrap';
+import { SlideHeader, SlideButton } from '@components/common/Style/style';
+import { Project } from '@redux/state';
+import { StaticLogo } from '@components/common/Logo';
+import ProjectLink from '@components/ProjectLink';
+import Carousel from '@components/common/Carousel/Carousel';
 import { ProjectDetailsWrapper } from './style';
-import { SlideHeader, SlideButton } from '../common/Style/style';
-import { Project } from '../../redux/state';
-import { StaticLogo } from '../common/Logo';
-import ProjectLink from '../ProjectLink';
-import Carousel from '../common/Carousel/Carousel';
 
 interface ProjectDetailsProps {
   isMobile: boolean;

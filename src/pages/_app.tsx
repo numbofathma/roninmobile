@@ -6,9 +6,9 @@ import withRedux from 'next-redux-wrapper';
 import withGA from 'next-ga';
 import App, { AppProps, AppContext } from 'next/app';
 import { Store } from 'redux';
-import { initStore } from '../redux/store';
+import { initStore } from '@redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../public/static/css/style.css';
+import '@public/static/css/style.css';
 
 interface CustmAppProps {
   store: Store;

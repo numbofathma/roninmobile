@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { SocialItem, State } from '../../redux/state';
+import { SocialItem, State } from '@redux/state';
 import SocialList from './SocialList';
 
 interface SocialListContainerProps {

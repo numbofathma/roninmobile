@@ -4,12 +4,12 @@ import {
 } from 'reactstrap';
 import Swal from 'sweetalert2';
 import { BounceLoader } from 'react-spinners';
+import { ContactFormErrors, ContactFormFields } from '@interfaces/interfaces';
+import { SlideFooter, SlideHeader, SlideButton } from '@components/common/Style/style';
+import ContactFormValidator from '@services/ContactFormValidator';
+import EmailService from '@services/EmailService';
+import SocialListContainer from '@components/SocialList/SocialListContainer';
 import { ContactWrapper, LoaderStyled } from './style';
-import { SlideFooter, SlideHeader, SlideButton } from '../common/Style/style';
-import { ContactFormErrors, ContactFormFields } from '../../interfaces/interfaces';
-import ContactFormValidator from '../../services/ContactFormValidator';
-import EmailService from '../../services/EmailService';
-import SocialListContainer from '../SocialList/SocialListContainer';
 
 interface ContactFormState {
   name: string;

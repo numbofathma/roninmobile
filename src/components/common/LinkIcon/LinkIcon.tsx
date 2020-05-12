@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import FaIcon from '@components/common/FaIcon';
 import { FaIconWrapper } from './style';
-import FaIcon from '../FaIcon';
 
 interface IconProps {
   id: string;

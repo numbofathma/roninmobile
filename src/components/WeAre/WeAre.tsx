@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { SlideButton } from '@components/common/Style/style';
+import { Logo } from '@components/common/Logo';
+import SocialListContainer from '@components/SocialList/SocialListContainer';
 import { WeAreWrapper } from './style';
-import { SlideButton } from '../common/Style/style';
-import { Logo } from '../common/Logo';
-import SocialListContainer from '../SocialList/SocialListContainer';
 
 interface WeAreProps {
   isMobile: boolean;

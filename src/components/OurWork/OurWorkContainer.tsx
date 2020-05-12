@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { State, Project } from '@redux/state';
 import OurWork from './OurWork';
-import { State, Project } from '../../redux/state';
 
 interface ComponentProps {
   isMobile: boolean;

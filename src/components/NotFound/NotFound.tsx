@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Router from 'next/router';
 import Head from 'next/head';
+import { SlideButton, SlideHeader } from '@components/common/Style/style';
+import { StaticLogo } from '@components/common/Logo';
 import { NotFoundWrapper } from './style';
-import { SlideButton, SlideHeader } from '../common/Style/style';
-import { StaticLogo } from '../common/Logo';
 
 const NotFound = () => (
   <>
