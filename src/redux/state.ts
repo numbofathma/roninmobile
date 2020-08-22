@@ -24,7 +24,7 @@ export interface Project {
   portfolioSettings: any;
 }
 
-export interface FeaturedItem {
+interface FeaturedItem {
   title: string;
   url: string;
 }

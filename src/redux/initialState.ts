@@ -55,6 +55,7 @@ const initialState: State = {
       slug: 'save-christmas-gift-rush',
       description: 'Christmas-themed game, developed using Typescript and the Phaser Framework, available on both Android and iOS platform.',
       image: '/static/img/apps/giftrush.png',
+      featured: [],
       links: {
         googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.giftrush',
         appStore: 'https://itunes.apple.com/us/app/save-christmas-gift-rush/id1069632749',
@@ -152,6 +153,7 @@ const initialState: State = {
       description: 'Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both '
                 + 'Android and iOS platform. For building the game for both platforms (Android & iOS) I\'ve used the Cordova Project.',
       image: 'static/img/apps/twindots.png',
+      featured: [],
       links: {
         googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.twindots',
         appStore: 'https://apps.apple.com/us/app/twin-dots-challenge/id1481706861',
@@ -198,6 +200,7 @@ const initialState: State = {
       description: '13 Arrows is a hyper casual archery game for those moments when you are bored, built with Typescript and '
                 + 'Phaser Framework. Try your best to get a higher score using the arrows you have at your disposal.',
       image: '/static/img/apps/arrows.png',
+      featured: [],
       links: {
         googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.arrows',
         appStore: 'https://apps.apple.com/us/app/13-arrows/id1483924074',
