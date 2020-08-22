@@ -10,6 +10,7 @@ export interface Project {
   slug: string;
   description: string;
   image: string;
+  featured?: FeaturedItem[];
   links: {
     googlePlay: string;
     appStore: string;
@@ -21,6 +22,11 @@ export interface Project {
   portfolio: string[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   portfolioSettings: any;
+}
+
+export interface FeaturedItem {
+  title: string;
+  url: string;
 }
 
 export interface SocialItem {

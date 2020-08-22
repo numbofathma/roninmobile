@@ -11,6 +11,12 @@ const initialState: State = {
                 + 'market, it combines elements of and arcade game with ones of a puzzle game, resulting a fast-paced game that will test your '
                 + 'attention, focus and adaptability to the max.',
       image: '/static/img/apps/paws.png',
+      featured: [
+        {
+          title: 'Game Dev Academy',
+          url: 'https://gamedevacademy.org/student-success-interview-with-paws-creator-costin-mirica/',
+        },
+      ],
       links: {
         googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.paws',
         appStore: 'https://itunes.apple.com/us/app/paws!-live-to-purr/id989570749',
@@ -95,6 +101,12 @@ const initialState: State = {
       description: 'Pop Pop Bubble Wrap is a mobile game developed in Typescript with Phaser Framework, available on both Android and iOS '
                 + 'platform. The application is a bubble wrap popping simulator that can be used for reducing one\' stress and anxiety.',
       image: 'static/img/apps/popbub.png',
+      featured: [
+        {
+          title: 'Games Keys',
+          url: 'https://bit.ly/3aegBtE',
+        },
+      ],
       links: {
         googlePlay: 'https://play.google.com/store/apps/details?id=eu.roninmobile.bubblewrap',
         appStore: 'https://itunes.apple.com/us/app/pop-pop-bubble-wrap/id1263224379?ls=1&mt=8',

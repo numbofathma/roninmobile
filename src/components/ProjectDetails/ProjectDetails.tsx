@@ -40,6 +40,30 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
           <p>{props.project.description}</p>
         </Col>
       </Row>
+      {
+        props.project.featured
+        && (
+        <Row>
+          <Col>
+            This game has been featured here:<br />
+            {
+              props.project.featured.map(
+                (featuredLink) => (
+                  <a
+                    href={featuredLink.url}
+                    title={featuredLink.title}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {featuredLink.title}
+                  </a>
+                ),
+              )
+              }
+          </Col>
+        </Row>
+        )
+      }
       <Row>
         <Col>
           <br /><br /><br /><br />
