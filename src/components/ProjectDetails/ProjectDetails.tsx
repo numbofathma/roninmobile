@@ -48,8 +48,9 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
             This game has been featured here:<br />
             {
               props.project.featured.map(
-                (featuredLink) => (
+                (featuredLink, key) => (
                   <a
+                    key={key}
                     href={featuredLink.url}
                     title={featuredLink.title}
                     target="_blank"
