@@ -26,10 +26,10 @@ export const StoreLink = styled.a`
     }
 `;
 
-export const GooglePlayLink = styled(StoreLink)`
+export const GooglePlayLink = styled(StoreLink as any)`
     background-image: url(/static/img/links/googleplay.png);
 `;
 
-export const AppStoreLink = styled(StoreLink)`
+export const AppStoreLink = styled(StoreLink as any)`
     background-image: url(/static/img/links/appstore.png);
 `;

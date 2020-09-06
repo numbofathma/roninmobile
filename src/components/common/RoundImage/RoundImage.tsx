@@ -23,4 +23,9 @@ const RoundImage = (props: RoundImageProps) => (
   </RoundImageWrapper>
 );
 
+RoundImage.defaultProps = {
+  width: undefined,
+  height: undefined,
+};
+
 export default RoundImage;

@@ -11,7 +11,6 @@ import Carousel from '@components/common/Carousel/Carousel';
 import { ProjectDetailsWrapper } from './style';
 
 interface ProjectDetailsProps {
-  isMobile: boolean;
   isAndroid: boolean;
   isiOS: boolean;
   project: Project;
@@ -41,7 +40,7 @@ const ProjectDetails = (props: ProjectDetailsProps) => (
         </Col>
       </Row>
       {
-        props.project.featured
+        props.project.featured.length > 0
         && (
         <Row>
           <Col>

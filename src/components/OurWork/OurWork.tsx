@@ -6,7 +6,6 @@ import { Project } from '@redux/state';
 import { OurWorkWrapper } from './style';
 
 interface OurWorkProps {
-  isMobile: boolean;
   isAndroid: boolean;
   isiOS: boolean;
   onClick: () => void;
@@ -30,7 +29,6 @@ const OurWork = (props: OurWorkProps) => (
         {props.projects.map((project, id) => (
           <Col key={id} xs="12" sm="12" md="6" xl="4">
             <ProjectCard
-              isMobile={props.isMobile}
               isAndroid={props.isAndroid}
               isiOS={props.isiOS}
               project={project}

@@ -4,7 +4,6 @@ import { State, Project } from '@redux/state';
 import OurWork from './OurWork';
 
 interface ComponentProps {
-  isMobile: boolean;
   isAndroid: boolean;
   isiOS: boolean;
   onClick: () => void;
@@ -18,7 +17,6 @@ type OurWorkContainerProps = ComponentProps & StoreProps;
 
 const OurWorkContainer = (props: OurWorkContainerProps) => (
   <OurWork
-    isMobile={props.isMobile}
     isAndroid={props.isAndroid}
     isiOS={props.isiOS}
     onClick={props.onClick}

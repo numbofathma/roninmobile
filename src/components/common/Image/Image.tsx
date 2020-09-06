@@ -17,4 +17,9 @@ const Image = (props: ImageProps) => (
   </ImageWrapper>
 );
 
+Image.defaultProps = {
+  width: undefined,
+  height: undefined,
+};
+
 export default Image;

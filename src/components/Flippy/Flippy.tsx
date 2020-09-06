@@ -17,7 +17,6 @@ interface FlippyProps {
   style?: React.CSSProperties;
 }
 
-
 interface FlippyState {
   isFlipped: boolean;
   isTouchDevice: boolean;

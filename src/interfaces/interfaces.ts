@@ -1,4 +1,3 @@
-
 export interface DownloadLinks {
   googlePlay: string;
   appStore: string;

@@ -26,7 +26,6 @@ const HomePage = (props: HomePageProps) => (
       }}
     />
     <OurWorkContainer
-      isMobile={props.isMobile}
       isAndroid={props.isAndroid}
       isiOS={props.isiOS}
       onClick={() => {

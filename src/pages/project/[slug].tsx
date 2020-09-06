@@ -30,7 +30,7 @@ class ProjectPage extends React.Component<ProjectPageProps> {
 
   render() {
     const {
-      projects, query, isMobile, isAndroid, isiOS,
+      projects, query, isAndroid, isiOS,
     } = this.props;
 
     const currentProject = projects.find((project: Project) => project.slug === query.slug);
@@ -43,7 +43,6 @@ class ProjectPage extends React.Component<ProjectPageProps> {
       <>
         <Head><title>Ronin Mobile - {currentProject.title}</title></Head>
         <ProjectDetails
-          isMobile={isMobile}
           isAndroid={isAndroid}
           isiOS={isiOS}
           project={currentProject}

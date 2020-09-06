@@ -1,14 +1,12 @@
 import * as React from 'react';
 import MobileDetect from 'mobile-detect';
-import { Provider } from 'react-redux';
 import Router from 'next/router';
-import withRedux from 'next-redux-wrapper';
 import withGA from 'next-ga';
 import App, { AppProps, AppContext } from 'next/app';
 import { Store } from 'redux';
-import { initStore } from '@redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@public/static/css/style.css';
+import { wrapper } from '../redux/store';
 
 interface CustmAppProps {
   store: Store;
@@ -43,20 +41,18 @@ class MyApp extends App<MyAppProps> {
 
   render() {
     const {
-      Component, pageProps, store, isMobile, isAndroid, isiOS,
+      Component, pageProps, isMobile, isAndroid, isiOS,
     } = this.props;
 
     return (
-      <Provider store={store}>
-        <Component
-          {...pageProps}
-          isMobile={isMobile}
-          isAndroid={isAndroid}
-          isiOS={isiOS}
-        />
-      </Provider>
+      <Component
+        {...pageProps}
+        isMobile={isMobile}
+        isAndroid={isAndroid}
+        isiOS={isiOS}
+      />
     );
   }
 }
 
-export default (withGA('UA-61042122-7', Router))(withRedux(initStore)(MyApp));
+export default (withGA('UA-61042122-7', Router))(wrapper.withRedux(MyApp));

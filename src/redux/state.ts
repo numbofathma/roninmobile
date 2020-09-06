@@ -10,7 +10,7 @@ export interface Project {
   slug: string;
   description: string;
   image: string;
-  featured?: FeaturedItem[];
+  featured: FeaturedItem[];
   links: {
     googlePlay: string;
     appStore: string;

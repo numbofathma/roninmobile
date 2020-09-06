@@ -7,7 +7,6 @@ import Flippy, { FrontSide, BackSide } from '../Flippy';
 import { ProjectCardSecondaryHeader, ProjectCardWrapper } from './style';
 
 interface ProjectCardProps {
-  isMobile: boolean;
   isAndroid: boolean;
   isiOS: boolean;
   project: Project;
