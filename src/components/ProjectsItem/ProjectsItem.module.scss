@@ -1,0 +1,17 @@
+.project {
+  display: flex;
+  cursor: pointer;
+
+  .project-description,
+  .project-image {
+    @apply border-gray-300;
+    @apply rounded;
+  }
+
+  &:hover {
+    .project-description,
+    .project-image {
+      @apply border-myBlue;
+    }
+  }
+}

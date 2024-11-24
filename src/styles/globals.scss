@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  scroll-behavior: smooth;
+  font-size: 18px;
+  height: 100%;
+}
+
+body {
+  @apply bg-dark text-white;
+}
+
+.button-base {
+  cursor: pointer;
+  font-size: 1rem;
+  @apply rounded text-myBlue transition duration-500 focus:outline-none focus:ring-0;
+  font-weight: bold;
+  @apply transition duration-500;
+
+  span.svg-icon {
+    @apply transition duration-500;
+    @apply bg-myBlue;
+  }
+
+  &,
+  &:hover,
+  &:active {
+    border: 2px solid;
+    @apply border-myBlue;
+  }
+
+  &:hover,
+  &:active {
+    border: 2px solid;
+    @apply bg-myBlue text-white;
+
+    span.svg-icon {
+      @apply bg-white;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    @apply border-myBlue bg-white text-myBlue;
+
+    span.svg-icon {
+      @apply bg-myBlue;
+    }
+  }
+}
+
+.text-blink {
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: inherit;
+  }
+}
