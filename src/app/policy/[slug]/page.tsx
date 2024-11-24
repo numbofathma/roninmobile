@@ -24,8 +24,22 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
       <div className='container m-auto max-w-screen-xl px-7 py-5'>
         <Navigation
           links={[
-            { text: '\u25C0 BACK', url: `/project/${slug}` },
-            { text: 'HOME \u25B6', url: '/' },
+            {
+              item: (
+                <>
+                  <span className='mr-1 inline-block rotate-180'>&#x27A4;</span>BACK
+                </>
+              ),
+              url: `/project/${slug}`,
+            },
+            {
+              item: (
+                <>
+                  HOME<span className='ml-1'>&#x27A4;</span>
+                </>
+              ),
+              url: '/',
+            },
           ]}
         />
         <div className='my-5'>

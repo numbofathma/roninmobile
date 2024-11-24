@@ -10,8 +10,8 @@ interface IWeAreProps {
 const WeAre: FC<IWeAreProps> = ({ isMobile = false }) => {
   const { name } = LangVars.Metadata;
   const { question, punchline, whatWeDo } = LangVars.About;
-  const logoWidth = isMobile ? 120 : 240;
-  const logoHeight = isMobile ? 136 : 272;
+  const logoWidth = isMobile ? 160 : 240;
+  const logoHeight = isMobile ? 181 : 272;
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -28,7 +28,7 @@ const WeAre: FC<IWeAreProps> = ({ isMobile = false }) => {
           src='/static/roninmobile.webp'
           alt={name}
           priority
-          className='mx-auto my-3'
+          className='mx-auto'
         />
       </div>
       <Header level={2} className='my-5 text-3xl text-myBlue md:mb-5 md:mt-10 md:text-6xl'>
