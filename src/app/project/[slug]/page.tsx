@@ -29,8 +29,22 @@ const ProjectPage = async ({ params }: IProjectPage) => {
       <div className='container m-auto max-w-screen-xl px-7 py-5'>
         <Navigation
           links={[
-            { text: '\u25C0 HOME', url: '/' },
-            { text: 'APP POLICY \u25B6', url: `/policy/${slug}` },
+            {
+              item: (
+                <>
+                  <span className='mr-1 inline-block rotate-180'>&#x27A4;</span>HOME
+                </>
+              ),
+              url: '/',
+            },
+            {
+              item: (
+                <>
+                  APP POLICY<span className='ml-1'>&#x27A4;</span>
+                </>
+              ),
+              url: `/policy/${slug}`,
+            },
           ]}
         />
         <div className='my-5'>
