@@ -1,0 +1,119 @@
+.embla {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  height: 100%;
+
+  margin: auto;
+  --slide-spacing: 1rem;
+  --slide-max-height: 100%;
+
+  &__viewport {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  &__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+    height: 100%;
+  }
+
+  &__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-width: 0;
+    height: var(--slide-max-height);
+    padding-left: var(--slide-spacing);
+    transform: translate3d(0, 0, 0);
+    @apply drop-shadow-lg;
+
+    &__number {
+      position: relative;
+      border-radius: 1.8rem;
+      font-size: 4rem;
+      font-weight: 600;
+      user-select: none;
+      width: 100%;
+      height: var(--slide-max-height);
+
+      img {
+        width: 100%;
+        max-height: var(--slide-max-height);
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  &__button {
+    @apply transition duration-500;
+    appearance: none;
+    background: transparent;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    color: theme('colors.white');
+    box-shadow: inset 0 0 0 0.1rem theme('colors.white');
+    z-index: 1;
+
+    &__svg {
+      @apply transition duration-500;
+      @apply h-7 w-7 bg-white;
+    }
+
+    &:hover {
+      @apply transition duration-500;
+      @apply text-myBlue;
+      box-shadow: inset 0 0 0 0.1rem theme('colors.myBlue');
+
+      & .embla__button__svg {
+        @apply bg-myBlue;
+      }
+    }
+    &:disabled {
+      color: theme('colors.dark');
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .desktop,
+  .mobile {
+    min-height: 55vh;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .mobile {
+    min-height: 100vh;
+  }
+
+  .desktop {
+    min-height: 55vh;
+  }
+}

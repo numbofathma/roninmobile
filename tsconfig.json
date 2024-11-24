@@ -7,23 +7,6 @@
       "esnext"
     ],
     "baseUrl": ".",
-    "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@services/*": [
-        "src/services/*"
-      ],
-      "@interfaces/*": [
-        "src/interfaces/*"
-      ],
-      "@redux/*": [
-        "src/redux/*"
-      ],
-      "@public/*": [
-        "public/*"
-      ]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -34,14 +17,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true,
+    "noUnusedLocals": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }
