@@ -42,7 +42,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             },
           ]}
         />
-        <div className='my-5'>
+        <div className='my-10'>
           <Header level={1} className='text-center text-3xl text-myBlue lg:text-left lg:text-4xl'>
             Privacy Policy
           </Header>
@@ -54,7 +54,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
         Constantin Mirica (hereinafter referred to as "Service Provider") as a an Ad Supported service. This service is provided "AS IS".`}
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             What information does the Application obtain and how is it used?
           </Header>
 
@@ -80,12 +80,12 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             browsers you use, and information about the way you use the Application.
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Does the Application collect precise real time location information of the device?
           </Header>
           <p>This Application does not gather precise information about the location of your mobile device.</p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Do third parties see and/or have access to information obtained by the Application?
           </Header>
 
@@ -125,7 +125,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             </li>
           </ul>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             What are my opt-out rights?
           </Header>
 
@@ -134,7 +134,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             processes as may be available as part of your mobile device or via the mobile application marketplace or network.
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Data Retention Policy, Managing Your Information
           </Header>
           <p className='text-justify'>
@@ -145,7 +145,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
         function properly.`}
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Children
           </Header>
           <p className='text-justify'>
@@ -159,7 +159,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             able to take the necessary actions.
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Security
           </Header>
 
@@ -171,7 +171,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             all potential security breaches.
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Changes
           </Header>
           <p className='text-justify'>
@@ -182,7 +182,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
 
           <p className='my-3'>This privacy policy is effective as of 2024-11-01.</p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Your Consent
           </Header>
           <p className='text-justify'>
@@ -191,7 +191,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
         including, but not limited to, collecting, storing, deleting, using, combining and disclosing information.`}
           </p>
 
-          <Header level={2} className='my-5 text-left text-lg text-myBlue lg:text-2xl'>
+          <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Contact us
           </Header>
           <p className='text-justify'>
