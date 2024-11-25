@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     images: [{ url: `${BASE_URL}/static/img/roninmobile.webp` }],
   },
   icons: {
-    shortcut: `favicon.ico`,
+    shortcut: `${BASE_URL}/favicon.ico`,
     icon: icon.map((size: number) => ({
       url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
       sizes: `${size}x${size}`,

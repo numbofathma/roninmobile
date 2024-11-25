@@ -1,4 +1,5 @@
 import { AppPlatforms } from '@/constants/enums';
+import { BASE_URL } from '.';
 
 export const projects = [
   {
@@ -7,7 +8,7 @@ export const projects = [
     description: `PAWs! is an HTML5 canvas game built with JavaScript and the Phaser Framework. PAWs' gameplay is unique throughout the
         market, it combines elements of and arcade game with ones of a puzzle game, resulting a fast-paced game that will test your
         attention, focus and adaptability to the max.`,
-    image: '/static/img/apps/paws.png',
+    image: `${BASE_URL}/static/img/apps/paws.png`,
     links: [
       { title: 'Google Play', url: 'https://play.google.com/store/apps/details?id=eu.roninmobile.paws', platform: AppPlatforms.ANDROID },
       { title: 'App Store', url: 'https://itunes.apple.com/us/app/paws!-live-to-purr/id989570749', platform: AppPlatforms.IOS },
@@ -15,13 +16,13 @@ export const projects = [
       { title: 'App Store', url: 'itms-apps://itunes.apple.com/us/app/paws!-live-to-purr/id989570749', platform: AppPlatforms.IOS, isMobile: true },
     ],
     portfolio: [
-      '/static/portfolio/playpaws/1.jpg',
-      '/static/portfolio/playpaws/2.jpg',
-      '/static/portfolio/playpaws/3.jpg',
-      '/static/portfolio/playpaws/4.jpg',
-      '/static/portfolio/playpaws/5.jpg',
-      '/static/portfolio/playpaws/6.jpg',
-      '/static/portfolio/playpaws/7.jpg',
+      `${BASE_URL}/static/portfolio/playpaws/1.jpg`,
+      `${BASE_URL}/static/portfolio/playpaws/2.jpg`,
+      `${BASE_URL}/static/portfolio/playpaws/3.jpg`,
+      `${BASE_URL}/static/portfolio/playpaws/4.jpg`,
+      `${BASE_URL}/static/portfolio/playpaws/5.jpg`,
+      `${BASE_URL}/static/portfolio/playpaws/6.jpg`,
+      `${BASE_URL}/static/portfolio/playpaws/7.jpg`,
     ],
     settings: {
       xs: '100%',
@@ -38,7 +39,7 @@ export const projects = [
     title: 'Save Christmas: Gift Rush',
     slug: 'save-christmas-gift-rush',
     description: 'Christmas-themed game, developed using Typescript and the Phaser Framework, available on both Android and iOS platform.',
-    image: '/static/img/apps/giftrush.png',
+    image: `${BASE_URL}/static/img/apps/giftrush.png`,
     links: [
       { title: 'Google Play', url: 'https://play.google.com/store/apps/details?id=eu.roninmobile.giftrush', platform: AppPlatforms.ANDROID },
       { title: 'App Store', url: 'https://itunes.apple.com/us/app/save-christmas-gift-rush/id1069632749', platform: AppPlatforms.IOS },
@@ -51,13 +52,13 @@ export const projects = [
       },
     ],
     portfolio: [
-      '/static/portfolio/giftrush/1.jpg',
-      '/static/portfolio/giftrush/2.jpg',
-      '/static/portfolio/giftrush/3.jpg',
-      '/static/portfolio/giftrush/4.jpg',
-      '/static/portfolio/giftrush/5.jpg',
-      '/static/portfolio/giftrush/6.jpg',
-      '/static/portfolio/giftrush/7.jpg',
+      `${BASE_URL}/static/portfolio/giftrush/1.jpg`,
+      `${BASE_URL}/static/portfolio/giftrush/2.jpg`,
+      `${BASE_URL}/static/portfolio/giftrush/3.jpg`,
+      `${BASE_URL}/static/portfolio/giftrush/4.jpg`,
+      `${BASE_URL}/static/portfolio/giftrush/5.jpg`,
+      `${BASE_URL}/static/portfolio/giftrush/6.jpg`,
+      `${BASE_URL}/static/portfolio/giftrush/7.jpg`,
     ],
     settings: {
       xs: '100%',
@@ -74,7 +75,7 @@ export const projects = [
     title: 'Pop Pop Bubble Wrap',
     slug: 'pop-pop-bubble-wrap',
     description: `Pop Pop Bubble Wrap is a mobile game developed in Typescript with Phaser Framework, available on both Android and iOS platform. The application is a bubble wrap popping simulator that can be used for reducing one' stress and anxiety.`,
-    image: '/static/img/apps/popbub.png',
+    image: `${BASE_URL}/static/img/apps/popbub.png`,
     links: [
       { title: 'Google Play', url: 'https://play.google.com/store/apps/details?id=eu.roninmobile.bubblewrap', platform: AppPlatforms.ANDROID },
       { title: 'App Store', url: 'https://itunes.apple.com/us/app/pop-pop-bubble-wrap/id1263224379?ls=1&mt=8', platform: AppPlatforms.IOS },
@@ -82,12 +83,12 @@ export const projects = [
       { title: 'App Store', url: 'itms-apps://itunes.apple.com/us/app/pop-pop-bubble-wrap/id1263224379', platform: AppPlatforms.IOS, isMobile: true },
     ],
     portfolio: [
-      '/static/portfolio/popbub/1.jpg',
-      '/static/portfolio/popbub/2.jpg',
-      '/static/portfolio/popbub/3.jpg',
-      '/static/portfolio/popbub/4.jpg',
-      '/static/portfolio/popbub/5.jpg',
-      '/static/portfolio/popbub/6.jpg',
+      `${BASE_URL}/static/portfolio/popbub/1.jpg`,
+      `${BASE_URL}/static/portfolio/popbub/2.jpg`,
+      `${BASE_URL}/static/portfolio/popbub/3.jpg`,
+      `${BASE_URL}/static/portfolio/popbub/4.jpg`,
+      `${BASE_URL}/static/portfolio/popbub/5.jpg`,
+      `${BASE_URL}/static/portfolio/popbub/6.jpg`,
     ],
     settings: {
       xs: '100%',
@@ -103,9 +104,9 @@ export const projects = [
   {
     title: 'Twin Dots Challenge',
     slug: 'twin-dots-challenge',
-    description: `Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both
+    description: `Twin Dots Challenge is a hyper-casual little puzzle, developed in TypeScript with Phaser Framework, available on both
         Android and iOS platform. For building the game for both platforms (Android & iOS) with the help of Cordova.`,
-    image: '/static/img/apps/twindots.png',
+    image: `${BASE_URL}/static/img/apps/twindots.png`,
     links: [
       { title: 'Google Play', url: 'https://play.google.com/store/apps/details?id=eu.roninmobile.twindots', platform: AppPlatforms.ANDROID },
       { title: 'App Store', url: 'https://apps.apple.com/us/app/twin-dots-challenge/id1481706861', platform: AppPlatforms.IOS },
@@ -113,13 +114,13 @@ export const projects = [
       { title: 'App Store', url: 'itms-apps://itunes.apple.com/us/app/twin-dots-challenge/id1481706861', platform: AppPlatforms.IOS, isMobile: true },
     ],
     portfolio: [
-      '/static/portfolio/twindots/1.jpg',
-      '/static/portfolio/twindots/2.jpg',
-      '/static/portfolio/twindots/3.jpg',
-      '/static/portfolio/twindots/4.jpg',
-      '/static/portfolio/twindots/5.jpg',
-      '/static/portfolio/twindots/6.jpg',
-      '/static/portfolio/twindots/7.jpg',
+      `${BASE_URL}/static/portfolio/twindots/1.jpg`,
+      `${BASE_URL}/static/portfolio/twindots/2.jpg`,
+      `${BASE_URL}/static/portfolio/twindots/3.jpg`,
+      `${BASE_URL}/static/portfolio/twindots/4.jpg`,
+      `${BASE_URL}/static/portfolio/twindots/5.jpg`,
+      `${BASE_URL}/static/portfolio/twindots/6.jpg`,
+      `${BASE_URL}/static/portfolio/twindots/7.jpg`,
     ],
     settings: {
       xs: '100%',
@@ -135,9 +136,9 @@ export const projects = [
   {
     title: '13 Arrows',
     slug: '13-arrows',
-    description: `13 Arrows is a hyper casual archery game for those moments when you are bored, built with Typescript and
+    description: `13 Arrows is a hyper-casual archery game for those moments when you are bored, built with Typescript and
         Phaser Framework. Try your best to get a higher score using the arrows you have at your disposal.`,
-    image: '/static/img/apps/arrows.png',
+    image: `${BASE_URL}/static/img/apps/arrows.png`,
     links: [
       { title: 'Google Play', url: 'https://play.google.com/store/apps/details?id=eu.roninmobile.arrows', platform: AppPlatforms.ANDROID },
       { title: 'App Store', url: 'https://apps.apple.com/us/app/13-arrows/id1483924074', platform: AppPlatforms.IOS },
@@ -145,10 +146,10 @@ export const projects = [
       { title: 'App Store', url: 'itms-apps://itunes.apple.com/us/app/13-arrows/id1483924074', platform: AppPlatforms.IOS, isMobile: true },
     ],
     portfolio: [
-      '/static/portfolio/arrows/1.jpg',
-      '/static/portfolio/arrows/2.jpg',
-      '/static/portfolio/arrows/3.jpg',
-      '/static/portfolio/arrows/4.jpg',
+      `${BASE_URL}/static/portfolio/arrows/1.jpg`,
+      `${BASE_URL}/static/portfolio/arrows/2.jpg`,
+      `${BASE_URL}/static/portfolio/arrows/3.jpg`,
+      `${BASE_URL}/static/portfolio/arrows/4.jpg`,
     ],
     settings: {
       xs: '100%',

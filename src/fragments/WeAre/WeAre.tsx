@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import Header from '@/components/Header';
+import { BASE_URL } from '@/constants';
 import { LangVars } from '@/constants/lang';
+import Header from '@/components/Header';
 
 interface IWeAreProps {
   isMobile: boolean;
@@ -25,13 +26,13 @@ const WeAre: FC<IWeAreProps> = ({ isMobile = false }) => {
             width: '100%',
             height: 'auto',
           }}
-          src='/static/roninmobile.webp'
+          src={`${BASE_URL}/static/roninmobile.webp`}
           alt={name}
           priority
           className='mx-auto'
         />
       </div>
-      <Header level={2} className='my-5 text-3xl text-myBlue md:mb-5 md:mt-10 md:text-6xl'>
+      <Header level={1} className='my-5 text-3xl text-myBlue md:mb-5 md:mt-10 md:text-5xl'>
         {question}
       </Header>
       <div className='shrink-1 mb-5 text-center sm:my-10'>
