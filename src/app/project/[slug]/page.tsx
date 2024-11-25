@@ -7,6 +7,7 @@ import Navigation from '@/components/Navigation';
 import { getProjectBySlug, getUserPlatform } from '@/helpers/api';
 import { linkBuilder } from '@/helpers/template';
 import { IPageProps, IProjectLink } from '@/interfaces/app';
+import { BASE_URL } from '@/constants';
 import { AppPlatforms } from '@/constants/enums';
 
 interface IProjectPage extends IPageProps {
@@ -60,16 +61,12 @@ const ProjectPage = async ({ params }: IProjectPage) => {
           <div>
             <div className='flex h-full flex-col items-center justify-center sm:flex-row'>
               {linkBuilder(links, isMobile, currentPlatform).map(({ title, platform, url }: IProjectLink) => {
+                const src = `${BASE_URL}${platform === AppPlatforms.ANDROID ? '/static/img/links/google-play.svg' : '/static/img/links/app-store.svg'}`;
+
                 return (
                   <div key={url} className='m-4 transition-all ease-in-out hover:-translate-y-1 hover:scale-110'>
                     <a href={url} title={`Check "${projectTitle}" on ${title}`} target='_blank' rel='noreferrer'>
-                      <Image
-                        src={platform === AppPlatforms.ANDROID ? '/static/img/links/google-play.svg' : '/static/img/links/app-store.svg'}
-                        alt={`Check "${projectTitle}" on ${title}`}
-                        width={200}
-                        height={0}
-                        className='h-[55px] w-auto'
-                      />
+                      <Image src={src} alt={`Check "${projectTitle}" on ${title}`} width={200} height={0} className='h-[55px] w-auto' />
                     </a>
                   </div>
                 );
