@@ -3,9 +3,9 @@ import React from 'react';
 export const LangVars = {
   Metadata: {
     name: 'Ronin Mobile',
-    title: 'Ronin Mobile - Hyper casual games for web & mobile',
-    description: 'We are Ronin Mobile. We build hyper casual game for web & mobile. Check out our portfolio!',
-    keywords: 'indie games, hyper casual games, mobile games, indie game developer',
+    title: 'Ronin Mobile - Hyper-Casual games for web & mobile',
+    description: 'We are Ronin Mobile. We build hyper-casual game for web & mobile. Check out our portfolio!',
+    keywords: 'indie games, hyper-casual games, mobile games, indie game developer, indie game studio, hypercasual',
   },
   Labels: {
     contactForm: {
@@ -31,7 +31,7 @@ export const LangVars = {
   About: {
     question: (
       <>
-        {'Casual Games'}
+        {'Hyper-Casual Games'}
         <span className='text-myRed'>?</span>
       </>
     ),
