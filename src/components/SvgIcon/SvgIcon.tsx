@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { BASE_URL } from '@/constants';
 import { SvgIcons } from '@/constants/enums';
 import style from './SvgIcon.module.scss';
@@ -9,7 +9,7 @@ interface ISvgIconProps {
   style?: React.CSSProperties;
 }
 
-const SvgIcon: FC<ISvgIconProps> = ({ icon = SvgIcons.back, className = '', style: iconStyle }) => {
+const SvgIcon = ({ icon = SvgIcons.back, className = '', style: iconStyle }: ISvgIconProps) => {
   if (!icon) {
     return null;
   }

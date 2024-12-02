@@ -2,6 +2,10 @@
   display: flex;
   cursor: pointer;
 
+  .project-image {
+    @apply border-2 border-myBlue drop-shadow-lg;
+  }
+
   .project-description,
   .project-image {
     @apply border-gray-300;

@@ -28,37 +28,82 @@ interface IContactFromResponseState {
 }
 
 const contactFormValidator: ContactFormValidator = new ContactFormValidator();
-
-const initialState: IContactFormState = {
-  name: '',
-  email: '',
-  text: '',
-  phone: '',
-  errors: {},
-};
-
-const initialFormState: IContactFromResponse = {
-  ok: null,
-  data: null,
-  errors: {},
-};
+const initialState: IContactFormState = { name: '', email: '', text: '', phone: '', errors: {} };
+const initialFormState: IContactFromResponse = { ok: null, data: null, errors: {} };
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 
 const ContactFrom = () => {
   const [state, setState] = useState<IContactFormState>(initialState);
   const { name, email, text, phone, errors } = state;
   const [formState, formAction] = useActionState(sendEmail, initialFormState);
   const [responseMessage, setResponseMessage] = useState<IContactFromResponseState | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
   const { type, title, value } = responseMessage || {};
   const { sectionTitle, itemTitle } = LangVars.Contact;
   const { emailSuccess, emailFailure } = LangVars.Alerts;
+  const { recaptchaInitFailure, missingToken } = LangVars.Validation.Recaptcha;
   const { contactForm: contactFormLabels } = LangVars.Labels;
   const { contactForm: contactFormPlaceholders } = LangVars.Placeholders;
   const { contactForm: contactFormButtons } = LangVars.Buttons;
+
+  // Load reCAPTCHA script
+  useEffect(() => {
+    if (!document.getElementById('recaptcha-v3')) {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      script.defer = true;
+      script.id = 'recaptcha-v3';
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  const executeRecaptcha = useCallback(async () => {
+    if (window.grecaptcha) {
+      try {
+        const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' });
+        setRecaptchaToken(token);
+        setState((prevState) => ({
+          ...prevState,
+          isPending: false,
+          errors: { recaptcha: undefined },
+        }));
+      } catch (_) {
+        setRecaptchaToken('');
+        setState((prevState) => ({
+          ...prevState,
+          isPending: false,
+          errors: { recaptcha: recaptchaInitFailure },
+        }));
+      }
+    }
+  }, [recaptchaInitFailure]);
+
+  // Auto-execute reCAPTCHA and refresh every 2 minutes
+  useEffect(() => {
+    let interval: string | number | NodeJS.Timeout | undefined;
+
+    const waitForGrecaptcha = () => {
+      if (window.grecaptcha) {
+        executeRecaptcha();
+        interval = setInterval(executeRecaptcha, 2 * 60 * 1000); // refresh token every 2 min
+      } else {
+        setTimeout(waitForGrecaptcha, 500);
+      }
+    };
+
+    waitForGrecaptcha();
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [recaptchaInitFailure, executeRecaptcha]);
 
   useEffect(() => {
     const { ok, errors = {} } = formState;
 
     if (ok !== null) {
+      executeRecaptcha();
       setState(
         ok
           ? initialState
@@ -67,15 +112,20 @@ const ContactFrom = () => {
               phone: '',
               email: errors?.domain ? '' : prevState.email,
               isPending: false,
-              errors,
+              errors: {
+                ...errors,
+                recaptcha: undefined,
+              },
             }),
       );
+      const failureMessage = { ...emailFailure, value: errors?.recaptcha || emailFailure.value };
+
       setResponseMessage({
         type: ok ? AlertTypes.SUCCESS : AlertTypes.WARNING,
-        ...(ok ? emailSuccess : emailFailure),
+        ...(ok ? emailSuccess : failureMessage),
       });
     }
-  }, [formState, emailSuccess, emailFailure]);
+  }, [formState, emailSuccess, emailFailure, executeRecaptcha]);
 
   const handleOnChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
@@ -83,14 +133,12 @@ const ContactFrom = () => {
       const { name, type } = e.target;
 
       if (type !== 'checkbox') {
-        contactFormFieldsValues[name as keyof IContactForm] = (e.target as HTMLTextAreaElement | HTMLInputElement).value;
+        contactFormFieldsValues[name as keyof IContactForm] = e.target.value;
       }
 
       setState((prevState) => ({ ...prevState, ...contactFormFieldsValues }));
 
-      if (responseMessage) {
-        setResponseMessage(null);
-      }
+      if (responseMessage) setResponseMessage(null);
     },
     [responseMessage],
   );
@@ -106,6 +154,7 @@ const ContactFrom = () => {
         phone: '',
         errors: {
           ...prevState.errors,
+          recaptcha: undefined,
           [field]: state[field].trim() ? fieldError : undefined,
         },
       }));
@@ -115,27 +164,38 @@ const ContactFrom = () => {
 
   const handleFormSubmit = useCallback(
     (data: FormData) => {
-      setState((prevState) => ({
-        ...prevState,
-        isPending: true,
-      }));
+      setState((prevState) => ({ ...prevState, isPending: true }));
 
-      if (contactFormValidator.validate(state) && !state.phone) {
-        formAction(data);
-      } else {
+      if (!recaptchaToken) {
+        setState((prevState) => ({
+          ...prevState,
+          isPending: false,
+          errors: { recaptcha: missingToken },
+        }));
+        return;
+      }
+
+      if (!contactFormValidator.validate(state) || state.phone) {
         setState((prevState) => ({
           ...prevState,
           phone: '',
           isPending: false,
-          errors: contactFormValidator.getErrors(),
+          errors: {
+            recaptcha: undefined,
+            ...contactFormValidator.getErrors(),
+          },
         }));
+        return;
       }
+
+      data.set('recaptchaToken', recaptchaToken);
+      formAction(data);
     },
-    [formAction, state],
+    [formAction, state, missingToken, recaptchaToken],
   );
 
   return (
-    <div className='my-5'>
+    <div className='py-10'>
       <form action={handleFormSubmit}>
         <div>
           <Header level={2} className='my-5 text-2xl text-myBlue md:text-4xl'>
@@ -145,10 +205,11 @@ const ContactFrom = () => {
           {formState.ok !== null && type && (
             <Alert type={type}>
               <span className='font-bold'>{title} </span>
-              <span className=''>{value}</span>
+              <span>{value}</span>
             </Alert>
           )}
         </div>
+
         <div className='-mx-3 my-5 flex flex-wrap'>
           <div className='mb-3 w-full px-3 md:mb-0 md:w-1/2'>
             <CustomInput
@@ -163,6 +224,7 @@ const ContactFrom = () => {
               onBlur={handleOnBlur('name')}
             />
           </div>
+
           <div className='w-full px-3 md:w-1/2'>
             <CustomInput
               type='text'
@@ -188,6 +250,7 @@ const ContactFrom = () => {
             />
           </div>
         </div>
+
         <div>
           <CustomTextarea
             id='text'
@@ -200,10 +263,12 @@ const ContactFrom = () => {
             onBlur={handleOnBlur('text')}
           />
         </div>
+
         <div className='my-5'>
           <FormButton type='submit' text={contactFormButtons.actionButtonText}>
             <SvgIcon icon={SvgIcons.send} className='h-5 w-5' />
           </FormButton>
+          {errors.recaptcha && <div className='bold my-2 text-xs text-myRed'>{errors.recaptcha}</div>}
         </div>
       </form>
     </div>

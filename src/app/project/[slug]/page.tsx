@@ -23,7 +23,7 @@ const ProjectPage = async ({ params }: IProjectPage) => {
     redirect('/');
   }
 
-  const { title: projectTitle, description, portfolio = [], links = [], settings } = project;
+  const { title: projectTitle, description, portfolio = [], links = [], settings, orientation } = project;
 
   return (
     <div className='flex h-full min-h-full flex-col'>
@@ -38,20 +38,40 @@ const ProjectPage = async ({ params }: IProjectPage) => {
               ),
               url: '/',
             },
-            {
-              item: (
-                <>
-                  APP POLICY<span className='ml-1'>&#x27A4;</span>
-                </>
-              ),
-              url: `/policy/${slug}`,
-            },
           ]}
+          className='justify-between'
         />
-        <div className='my-5'>
-          <Header level={1} className='text-center text-3xl text-myBlue lg:text-left lg:text-4xl'>
-            {projectTitle}
-          </Header>
+        <div className='grid grid-cols-1 lg:grid-cols-2'>
+          <div className='my-5'>
+            <Header level={1} className='text-center text-3xl text-myBlue lg:text-left lg:text-4xl'>
+              <span className='text-myRed'># </span>
+              {projectTitle}
+            </Header>
+          </div>
+          <div className='m-3 lg:m-0 lg:mt-5'>
+            <Navigation
+              links={[
+                {
+                  item: (
+                    <>
+                      <span className='mr-1 inline-block rotate-180 lg:hidden'>&#x27A4;</span>APP POLICY
+                      <span className='ml-1 hidden lg:inline-block'>&#x27A4;</span>
+                    </>
+                  ),
+                  url: `/policy/${slug}`,
+                },
+                {
+                  item: (
+                    <>
+                      TERMS<span className='ml-1'>&#x27A4;</span>
+                    </>
+                  ),
+                  url: `/terms/${slug}`,
+                },
+              ]}
+              className='justify-evenly lg:flex-col lg:items-end'
+            />
+          </div>
         </div>
         <div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
           <div className=''>
@@ -66,7 +86,7 @@ const ProjectPage = async ({ params }: IProjectPage) => {
                 return (
                   <div key={url} className='m-4 transition-all ease-in-out hover:-translate-y-1 hover:scale-110'>
                     <a href={url} title={`Check "${projectTitle}" on ${title}`} target='_blank' rel='noreferrer'>
-                      <Image src={src} alt={`Check "${projectTitle}" on ${title}`} width={200} height={0} className='h-[55px] w-auto' />
+                      <Image src={src} alt={`Check "${projectTitle}" on ${title}`} width={200} height={0} className='h-[55px] w-auto' priority />
                     </a>
                   </div>
                 );
@@ -81,7 +101,7 @@ const ProjectPage = async ({ params }: IProjectPage) => {
       <div className='flex flex-1'>
         <Carousel
           title={projectTitle}
-          data={{ images: portfolio, settings }}
+          data={{ images: portfolio, settings, orientation }}
           options={{ loop: true }}
           isMobile={isMobile}
           className='py-5 md:py-10'

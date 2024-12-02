@@ -1,4 +1,4 @@
-import { AppPlatforms } from '@/constants/enums';
+import { AppPlatforms, Orientation } from '@/constants/enums';
 import { BASE_URL } from '.';
 
 export const projects = [
@@ -31,9 +31,10 @@ export const projects = [
       lg: '50%',
       xl: '33.33333%',
       '2xl': '33.33333%',
-      '3xl': '25%',
-      '4xl': '20%',
+      '3xl': '33.33333%',
+      '4xl': '25%',
     },
+    orientation: Orientation.LANDSCAPE,
   },
   {
     title: 'Save Christmas: Gift Rush',
@@ -70,6 +71,7 @@ export const projects = [
       '3xl': '20%',
       '4xl': '20%',
     },
+    orientation: Orientation.PORTRAIT,
   },
   {
     title: 'Pop Pop Bubble Wrap',
@@ -100,6 +102,7 @@ export const projects = [
       '3xl': '20%',
       '4xl': '20%',
     },
+    orientation: Orientation.PORTRAIT,
   },
   {
     title: 'Twin Dots Challenge',
@@ -132,6 +135,7 @@ export const projects = [
       '3xl': '20%',
       '4xl': '20%',
     },
+    orientation: Orientation.PORTRAIT,
   },
   {
     title: '13 Arrows',
@@ -161,6 +165,7 @@ export const projects = [
       '3xl': '25%',
       '4xl': '20%',
     },
+    orientation: Orientation.LANDSCAPE,
   },
 ];
 

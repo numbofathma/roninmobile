@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import Link from 'next/link';
 
 interface INavigationLink {
@@ -9,10 +9,11 @@ interface INavigationLink {
 
 interface INavigationProps {
   links: INavigationLink[];
+  className?: string;
 }
 
-const Navigation: FC<INavigationProps> = ({ links = [] }) => (
-  <div className='flex justify-between'>
+const Navigation = ({ links = [], className = '' }: INavigationProps) => (
+  <div className={`flex ${className}`}>
     {links.map(({ item, url, className }: INavigationLink) => (
       <div key={url}>
         <Link href={url} className={className || 'text-xs text-myBlue hover:text-myRed'}>

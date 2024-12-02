@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Lato } from 'next/font/google';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import Starfield from '@/components/Starfield';
-import { BASE_URL, DEV_MODE } from '@/constants';
+import { BASE_URL, COOKIE_YES_ID, DEV_MODE } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
 import { getUserPlatform } from '@/helpers/api';
@@ -63,12 +64,13 @@ const RootLayout = async ({ children }: { children: ReactElement }) => {
   const { isMobile } = await getUserPlatform();
 
   return (
-    <html lang='en'>
+    <html lang='en' data-scroll-behavior='smooth'>
+      <head>{!DEV_MODE && <Script id='cookieyes' src={`https://cdn-cookieyes.com/client_data/${COOKIE_YES_ID}/script.js`} />}</head>
       <body className={lato.className}>
         <Starfield isMobile={isMobile} />
         {children}
+        {!DEV_MODE && <GoogleAnalytics />}
       </body>
-      {!DEV_MODE && <GoogleAnalytics />}
     </html>
   );
 };

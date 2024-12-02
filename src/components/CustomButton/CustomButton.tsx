@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC } from 'react';
+import React from 'react';
 import style from './CustomButton.module.scss';
 
 interface ICustomButtonProps {
@@ -12,7 +12,7 @@ interface ICustomButtonProps {
   children?: React.ReactNode;
 }
 
-const CustomButton: FC<ICustomButtonProps> = ({ children, onClick, type = 'button', disabled = false }) => (
+const CustomButton = ({ children, onClick, type = 'button', disabled = false }: ICustomButtonProps) => (
   <button type={type} disabled={disabled} className={`button-base ${style.button}`} onClick={onClick}>
     {children}
   </button>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 interface ILoaderProps {
   width: number;
@@ -6,7 +6,7 @@ interface ILoaderProps {
   className?: string;
 }
 
-const Loader: FC<ILoaderProps> = ({ width = 5, height = 5, className = '' }) => {
+const Loader = ({ width = 5, height = 5, className = '' }: ILoaderProps) => {
   return (
     <div role='status' className={`h-${height} w-${width}`}>
       <svg

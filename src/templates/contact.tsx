@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 interface IContactEmaiTemplatelProps {
   name: string;
@@ -6,7 +6,7 @@ interface IContactEmaiTemplatelProps {
   text: string;
 }
 
-export const ContactEmailTemplate: FC<Readonly<IContactEmaiTemplatelProps>> = ({ name, email, text }) => (
+export const ContactEmailTemplate = ({ name, email, text }: Readonly<IContactEmaiTemplatelProps>) => (
   <div>
     <strong>You have new contact message from Ronin site!</strong>
     <br />

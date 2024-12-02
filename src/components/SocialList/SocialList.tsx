@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { ISocial } from '@/interfaces/app';
 import style from './SocialList.module.scss';
 
@@ -6,7 +6,7 @@ interface ISocialListProps {
   socials: ISocial[];
 }
 
-const SocialList: FC<ISocialListProps> = ({ socials }) => (
+const SocialList = ({ socials }: ISocialListProps) => (
   <div className={`${style.socialList} mt-5 flex justify-center`}>
     {socials.map(({ id, icon, url, title }: ISocial) => (
       <a key={id} href={url} title={title} target='_blank' className={style.socialListItem} rel='noreferrer'>

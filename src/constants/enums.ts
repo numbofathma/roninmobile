@@ -45,3 +45,8 @@ export const enum AppPlatforms {
   ANDROID = 'android',
   WEB = 'web',
 }
+
+export const enum Orientation {
+  LANDSCAPE = 'landscape',
+  PORTRAIT = 'portrait',
+}

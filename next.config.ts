@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
     silenceDeprecations: ['legacy-js-api'],
   },
   images: {
+    qualities: [80, 100],
     remotePatterns: [
       {
         protocol: 'https',

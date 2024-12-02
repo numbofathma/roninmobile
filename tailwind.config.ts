@@ -18,7 +18,7 @@ export default {
       colors: {
         myBlue: '#4799C3',
         myRed: '#F33E28',
-        dark: '#221f1f',
+        dark: '#181818',
       },
       fontFamily: {
         sans: ['var(--font-lato)'],
