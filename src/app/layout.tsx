@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Lato } from 'next/font/google';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import Starfield from '@/components/Starfield';
-import { BASE_URL, DEV_MODE, GA_ID } from '@/constants';
+import { BASE_URL, DEV_MODE } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
 import { getUserPlatform } from '@/helpers/api';
@@ -68,7 +68,7 @@ const RootLayout = async ({ children }: { children: ReactElement }) => {
         <Starfield isMobile={isMobile} />
         {children}
       </body>
-      {!DEV_MODE && <GoogleAnalytics gaId={GA_ID} />}
+      {!DEV_MODE && <GoogleAnalytics />}
     </html>
   );
 };
