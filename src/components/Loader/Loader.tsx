@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ILoaderProps {
   width: number;
   height: number;

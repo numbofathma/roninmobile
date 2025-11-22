@@ -1,6 +1,5 @@
-import React from 'react';
 import Image from 'next/image';
-import { BASE_URL } from '@/constants';
+import { CDN_URL } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import Header from '@/components/Header';
 
@@ -26,7 +25,7 @@ const WeAre = ({ isMobile = false }: IWeAreProps) => {
             width: '100%',
             height: 'auto',
           }}
-          src={`${BASE_URL}/static/roninmobile.webp`}
+          src={`${CDN_URL}/static/roninmobile.webp`}
           alt={name}
           priority
           className='mx-auto my-5'
@@ -36,8 +35,6 @@ const WeAre = ({ isMobile = false }: IWeAreProps) => {
         {question}
       </Header>
       <div className='shrink-1 mb-5 text-center sm:my-10'>
-        {/* <p className='mb-10 text-xl md:text-2xl'>{punchline}</p> */}
-        {/* <hr className='mx-[100px]' /> */}
         <div className='flex justify-center text-center'>
           <p className='mt-10 md:w-[55%]'>{whatWeDo}</p>
         </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import style from './CustomButton.module.scss';
 
 interface ICustomButtonProps {

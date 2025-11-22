@@ -1,13 +1,25 @@
-import React from 'react';
+import { cache } from 'react';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import { IPageProps } from '@/interfaces/app';
-import { getProjectBySlug } from '@/helpers/api';
+import { getMetadataInfo, getProjectBySlug } from '@/helpers/api';
+import { LangVars } from '@/constants/lang';
 
 interface ITermsPagePage extends IPageProps {
   params: Promise<{ slug: string }>;
 }
+
+const getProjectBySlugCached = cache(getProjectBySlug);
+
+export const generateMetadata = async ({ params }: ITermsPagePage): Promise<Metadata> => {
+  const { slug } = await params;
+  const { description } = LangVars.Metadata;
+  const { title } = LangVars.Terms;
+
+  return await getMetadataInfo(slug, { title, description }, getProjectBySlugCached);
+};
 
 const TermsPage = async ({ params }: ITermsPagePage) => {
   const { slug } = await params;
@@ -30,6 +42,7 @@ const TermsPage = async ({ params }: ITermsPagePage) => {
                   <span className='mr-1 inline-block rotate-180'>&#x27A4;</span>BACK
                 </>
               ),
+              title: `Return to "${projectTitle}" project`,
               url: `/project/${slug}`,
             },
             {
@@ -38,6 +51,7 @@ const TermsPage = async ({ params }: ITermsPagePage) => {
                   HOME<span className='ml-1'>&#x27A4;</span>
                 </>
               ),
+              title: 'Return to the homepage',
               url: '/',
             },
           ]}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import SvgIcon from '@/components/SvgIcon';
 import { AlertTypes, SvgIcons } from '@/constants/enums';
 

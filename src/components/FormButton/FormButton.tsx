@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { useFormStatus } from 'react-dom';
 import CustomButton from '@/components/CustomButton';
 import Loader from '@/components/Loader';

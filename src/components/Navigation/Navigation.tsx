@@ -1,8 +1,9 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import Link from 'next/link';
 
 interface INavigationLink {
   item: ReactElement;
+  title: string;
   url: string;
   className?: string;
 }
@@ -14,9 +15,9 @@ interface INavigationProps {
 
 const Navigation = ({ links = [], className = '' }: INavigationProps) => (
   <div className={`flex ${className}`}>
-    {links.map(({ item, url, className }: INavigationLink) => (
+    {links.map(({ item, title, url, className }: INavigationLink) => (
       <div key={url}>
-        <Link href={url} className={className || 'text-xs text-myBlue hover:text-myRed'}>
+        <Link href={url} title={title} className={className || 'text-xs text-myBlue hover:text-myRed'}>
           {item}
         </Link>
       </div>

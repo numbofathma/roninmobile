@@ -1,4 +1,6 @@
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+export const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL;
 export const DEV_MODE = process.env.NODE_ENV === 'development';
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 export const COOKIE_YES_ID = process.env.NEXT_PUBLIC_COOKIE_YES_ID || '';
+export const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';

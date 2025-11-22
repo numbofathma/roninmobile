@@ -1,19 +1,20 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Lato } from 'next/font/google';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { GoogleTagManager } from '@next/third-parties/google';
 import Starfield from '@/components/Starfield';
-import { BASE_URL, COOKIE_YES_ID, DEV_MODE } from '@/constants';
+import { CDN_URL, DEV_MODE, GTM_ID, RECAPTCHA_SITE_KEY } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
-import { getUserPlatform } from '@/helpers/api';
+import { getUserPlatform } from '@/helpers/platform';
 import '@/styles/globals.scss';
 
 const lato = Lato({
   weight: '300',
   subsets: ['latin'],
   variable: '--font-lato',
+  display: 'swap',
 });
 
 const { name, title, description, keywords } = LangVars.Metadata;
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     url: 'https://roninmobile.eu',
     type: 'website',
     title,
-    images: [{ url: `${BASE_URL}/static/img/roninmobile.webp` }],
+    images: [{ url: `${CDN_URL}/static/img/roninmobile.webp` }],
     description,
   },
   twitter: {
@@ -37,16 +38,16 @@ export const metadata: Metadata = {
     site: 'https://roninmobile.eu',
     title,
     description,
-    images: [{ url: `${BASE_URL}/static/img/roninmobile.webp` }],
+    images: [{ url: `${CDN_URL}/static/img/roninmobile.webp` }],
   },
   icons: {
-    shortcut: `${BASE_URL}/favicon.ico`,
+    shortcut: `${CDN_URL}/favicon.ico`,
     icon: icon.map((size: number) => ({
-      url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
+      url: `${CDN_URL}/icons/icon-${size}x${size}.png`,
       sizes: `${size}x${size}`,
     })),
     apple: apple.map((size: number) => ({
-      url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
+      url: `${CDN_URL}/icons/icon-${size}x${size}.png`,
       sizes: `${size}x${size}`,
     })),
   },
@@ -65,11 +66,15 @@ const RootLayout = async ({ children }: { children: ReactElement }) => {
 
   return (
     <html lang='en' data-scroll-behavior='smooth'>
-      <head>{!DEV_MODE && <Script id='cookieyes' src={`https://cdn-cookieyes.com/client_data/${COOKIE_YES_ID}/script.js`} />}</head>
+      <head>
+        <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
+        <link rel='dns-prefetch' href='https://cdn-cookieyes.com' />
+        {!DEV_MODE && <GoogleTagManager gtmId={GTM_ID} />}
+      </head>
       <body className={lato.className}>
         <Starfield isMobile={isMobile} />
         {children}
-        {!DEV_MODE && <GoogleAnalytics />}
+        <Script id='recaptcha-v3' src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`} strategy='afterInteractive' />
       </body>
     </html>
   );

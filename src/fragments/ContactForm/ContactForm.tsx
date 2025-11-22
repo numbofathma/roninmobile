@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent, useCallback, useEffect, useState, useActionState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState, useActionState, startTransition } from 'react';
 import Alert from '@/components/Alert';
 import CustomInput from '@/components/CustomInput';
 import CustomTextarea from '@/components/CustomTextarea';
@@ -111,7 +111,6 @@ const ContactFrom = () => {
               ...prevState,
               phone: '',
               email: errors?.domain ? '' : prevState.email,
-              isPending: false,
               errors: {
                 ...errors,
                 recaptcha: undefined,
@@ -162,41 +161,41 @@ const ContactFrom = () => {
     [state],
   );
 
-  const handleFormSubmit = useCallback(
-    (data: FormData) => {
-      setState((prevState) => ({ ...prevState, isPending: true }));
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-      if (!recaptchaToken) {
-        setState((prevState) => ({
-          ...prevState,
-          isPending: false,
-          errors: { recaptcha: missingToken },
-        }));
-        return;
-      }
+    const data = new FormData(e.currentTarget);
 
-      if (!contactFormValidator.validate(state) || state.phone) {
-        setState((prevState) => ({
-          ...prevState,
-          phone: '',
-          isPending: false,
-          errors: {
-            recaptcha: undefined,
-            ...contactFormValidator.getErrors(),
-          },
-        }));
-        return;
-      }
+    if (!recaptchaToken) {
+      setState((prevState) => ({
+        ...prevState,
+        errors: { recaptcha: missingToken },
+      }));
+      return;
+    }
 
-      data.set('recaptchaToken', recaptchaToken);
+    if (!contactFormValidator.validate(state) || state.phone) {
+      setState((prevState) => ({
+        ...prevState,
+        phone: '',
+        errors: {
+          recaptcha: undefined,
+          ...contactFormValidator.getErrors(),
+        },
+      }));
+      return;
+    }
+
+    data.set('recaptchaToken', recaptchaToken);
+
+    startTransition(() => {
       formAction(data);
-    },
-    [formAction, state, missingToken, recaptchaToken],
-  );
+    });
+  };
 
   return (
     <div className='py-10'>
-      <form action={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <div>
           <Header level={2} className='my-5 text-2xl text-myBlue md:text-4xl'>
             {sectionTitle}

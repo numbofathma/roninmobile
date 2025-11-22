@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IProject } from '@/interfaces/app';
@@ -12,9 +11,9 @@ const ProjectItem = (props: IProjectItemProps) => {
   const { slug, title, description, image } = props;
 
   return (
-    <Link key={slug} href={`/project/${slug}`} title={`${projectTitlePrefix} "${title}"`} className={style['project']}>
-      <span className={`${style['project-description']} mt-3 block border-4 bg-white p-4 md:mt-0`}>
-        <span className='mb-3 flex flex-col items-center md:flex-row md:items-center'>
+    <Link href={`/project/${slug}`} title={`${projectTitlePrefix} "${title}"`} className={style['project']}>
+      <span className={`${style['project-description']} mt-3 block border-4 bg-white p-6 md:mt-0`}>
+        <span className='mb-5 flex flex-col items-center md:flex-row md:items-center'>
           <Image width={88} height={88} src={image} alt={title} priority={false} className={style['project-image']} />
           <span className='m-3 text-center text-lg font-extrabold text-gray-900 md:text-left'>{title}</span>
         </span>

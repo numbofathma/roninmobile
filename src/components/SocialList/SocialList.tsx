@@ -1,4 +1,3 @@
-import React from 'react';
 import { ISocial } from '@/interfaces/app';
 import style from './SocialList.module.scss';
 

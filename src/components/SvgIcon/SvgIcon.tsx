@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { BASE_URL } from '@/constants';
+import { CDN_URL } from '@/constants';
 import { SvgIcons } from '@/constants/enums';
 import style from './SvgIcon.module.scss';
 
@@ -18,8 +18,8 @@ const SvgIcon = ({ icon = SvgIcons.back, className = '', style: iconStyle }: ISv
     <span
       className={`${style.icon} svg-icon ${className}`}
       style={{
-        maskImage: `url(${BASE_URL}/static/img/icons/${icon}.svg)`,
-        WebkitMaskImage: `url(${BASE_URL}/static/img/icons/${icon}.svg)`,
+        maskImage: `url(${CDN_URL}/static/img/icons/${icon}.svg)`,
+        WebkitMaskImage: `url(${CDN_URL}/static/img/icons/${icon}.svg)`,
         ...iconStyle,
       }}
     />

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, useState, useCallback, useEffect } from 'react';
+import { memo, useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';

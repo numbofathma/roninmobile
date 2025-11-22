@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ICustomInputProps {
   type: 'text' | 'email' | 'password' | 'number' | 'phone';
   id: string;

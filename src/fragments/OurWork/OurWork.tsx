@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '@/components/Header';
 import ProjectsList from '@/components/ProjectsList';
 import { LangVars } from '@/constants/lang';

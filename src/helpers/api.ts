@@ -1,13 +1,9 @@
-import { headers } from 'next/headers';
-import { userAgent } from 'next/server';
 import { IProject } from '@/interfaces/app';
-import { AppPlatforms } from '@/constants/enums';
+import { BASE_URL, CDN_URL } from '@/constants';
 
 export const getProjects = async () => {
-  const appUrl = (await headers()).get('x-current-path');
-
   try {
-    const response = await fetch(`${appUrl}/api/projects`);
+    const response = await fetch(`${BASE_URL}/api/projects`);
     const { data = [], ok } = await response.json();
 
     return {
@@ -23,10 +19,8 @@ export const getProjects = async () => {
 };
 
 export const getProjectBySlug = async (slug: string) => {
-  const appUrl = (await headers()).get('x-current-path');
-
   try {
-    const response = await fetch(`${appUrl}/api/projects/${slug}`);
+    const response = await fetch(`${BASE_URL}/api/projects/${slug}`);
     const { data = {}, ok } = await response.json();
 
     return {
@@ -40,18 +34,27 @@ export const getProjectBySlug = async (slug: string) => {
   }
 };
 
-export const getUserPlatform = async () => {
-  const { device = {}, os = {} } = userAgent({ headers: await headers() });
-  const { name = 'Other' } = os;
-  const isAndroid = name === 'Android';
-  const isIOS = ['iOS', 'iPadOS'].includes(name);
-  const isMobile = device?.type === 'mobile';
-  const currentPlatform = isAndroid ? AppPlatforms.ANDROID : isIOS ? AppPlatforms.IOS : AppPlatforms.WEB;
+export const getMetadataInfo = async (
+  slug: string,
+  language: { title: string; description: string },
+  resolver: (slug: string) => Promise<{ ok: boolean; project?: IProject }>,
+) => {
+  const { title, description } = language;
 
-  return {
-    isMobile,
-    isAndroid,
-    isIOS,
-    currentPlatform,
-  };
+  try {
+    const { project } = await resolver(slug);
+    const { title: projectTitle, description: projectDescription } = project || {};
+
+    return {
+      title: `${title} ~ ${projectTitle}`,
+      description: projectDescription,
+      openGraph: {
+        title: `${title} ~ ${projectTitle}`,
+        description: projectDescription,
+        images: [{ url: `${CDN_URL}/static/img/roninmobile.webp` }],
+      },
+    };
+  } catch {
+    return { title, description };
+  }
 };

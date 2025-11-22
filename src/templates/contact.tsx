@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface IContactEmaiTemplatelProps {
   name: string;
   email: string;

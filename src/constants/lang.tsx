@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const LangVars = {
   Metadata: {
     name: 'Ronin Mobile',
@@ -43,10 +41,16 @@ export const LangVars = {
     ),
     whatWeDo: "With more than 15 years of experience in software development, we aim to deliver awesome games for your company's marketing campaigns",
   },
+  Privacy: {
+    title: 'Privacy Policy',
+  },
+  Terms: {
+    title: 'Terms & Conditions',
+  },
   OurWork: {
     sectionTitle: (
       <>
-        <span className='text-myRed'># </span>
+        <span className='text-myRed'></span>
         {`Check out some of our work`}
       </>
     ),
@@ -66,7 +70,7 @@ export const LangVars = {
   Contact: {
     sectionTitle: (
       <>
-        <span className='text-myRed'># </span>
+        <span className='text-myRed'></span>
         {`Getting in touch is easy`}
       </>
     ),
