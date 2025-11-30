@@ -46,18 +46,6 @@ const ContactFrom = () => {
   const { contactForm: contactFormPlaceholders } = LangVars.Placeholders;
   const { contactForm: contactFormButtons } = LangVars.Buttons;
 
-  // Load reCAPTCHA script
-  useEffect(() => {
-    if (!document.getElementById('recaptcha-v3')) {
-      const script = document.createElement('script');
-      script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-      script.async = true;
-      script.defer = true;
-      script.id = 'recaptcha-v3';
-      document.body.appendChild(script);
-    }
-  }, []);
-
   const executeRecaptcha = useCallback(async () => {
     if (window.grecaptcha) {
       try {
@@ -65,14 +53,12 @@ const ContactFrom = () => {
         setRecaptchaToken(token);
         setState((prevState) => ({
           ...prevState,
-          isPending: false,
           errors: { recaptcha: undefined },
         }));
       } catch (_) {
         setRecaptchaToken('');
         setState((prevState) => ({
           ...prevState,
-          isPending: false,
           errors: { recaptcha: recaptchaInitFailure },
         }));
       }
@@ -86,7 +72,7 @@ const ContactFrom = () => {
     const waitForGrecaptcha = () => {
       if (window.grecaptcha) {
         executeRecaptcha();
-        interval = setInterval(executeRecaptcha, 2 * 60 * 1000); // refresh token every 2 min
+        interval = setInterval(executeRecaptcha, 2 * 60 * 1000);
       } else {
         setTimeout(waitForGrecaptcha, 500);
       }
@@ -97,7 +83,7 @@ const ContactFrom = () => {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [recaptchaInitFailure, executeRecaptcha]);
+  }, [executeRecaptcha]);
 
   useEffect(() => {
     const { ok, errors = {} } = formState;
