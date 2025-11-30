@@ -1,13 +1,13 @@
 'use client';
 
-import React, { FC, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { debounce } from '@/helpers/template';
 
 interface IStarffiledProps {
   isMobile?: boolean;
 }
 
-const Starfield: FC<IStarffiledProps> = ({ isMobile = false }) => {
+const Starfield = ({ isMobile = false }: IStarffiledProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useLayoutEffect(() => {
@@ -41,7 +41,7 @@ const Starfield: FC<IStarffiledProps> = ({ isMobile = false }) => {
     window.addEventListener('resize', handleResize);
 
     const clearCanvas = () => {
-      c.fillStyle = '#221f1f';
+      c.fillStyle = '#181818';
       c.fillRect(0, 0, w, h);
     };
 

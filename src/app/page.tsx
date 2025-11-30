@@ -1,8 +1,7 @@
-import React from 'react';
 import WeAre from '@/fragments/WeAre';
 import OurWork from '@/fragments/OurWork';
 import ContactForm from '@/fragments/ContactForm';
-import { getUserPlatform } from '@/helpers/api';
+import { getUserPlatform } from '@/helpers/platform';
 
 const HomePage = async () => {
   const { isMobile } = await getUserPlatform();

@@ -1,4 +1,4 @@
-import { AppPlatforms, Breakpoints } from '@/constants/enums';
+import { AppPlatforms, Breakpoints, Orientation } from '@/constants/enums';
 import { IEmail } from './api';
 
 export interface IPageProps {
@@ -20,6 +20,7 @@ export interface IProject {
   image: string;
   portfolio: string[];
   settings: Record<Breakpoints, string>;
+  orientation: Orientation;
   links?: IProjectLink[];
 }
 
@@ -30,7 +31,7 @@ export interface ISocial {
   url: string;
 }
 
-export interface IContactForm extends IEmail {}
+export type IContactForm = IEmail;
 
 export interface IContactFromResponse {
   ok: boolean | null;

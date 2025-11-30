@@ -1,5 +1,3 @@
-import React, { FC } from 'react';
-
 interface ICustomTextareaProps {
   id: string;
   name: string;
@@ -13,7 +11,7 @@ interface ICustomTextareaProps {
   onBlur?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const CustomTextarea: FC<ICustomTextareaProps> = ({
+const CustomTextarea = ({
   label,
   id,
   placeholder,
@@ -24,7 +22,7 @@ const CustomTextarea: FC<ICustomTextareaProps> = ({
   disabled = false,
   className = '',
   onBlur,
-}) => (
+}: ICustomTextareaProps) => (
   <div className={className}>
     {label && (
       <label htmlFor={id} className='mb-2 block cursor-pointer text-xs font-bold uppercase tracking-wide text-white'>

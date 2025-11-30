@@ -1,5 +1,3 @@
-import React, { FC } from 'react';
-
 interface ICustomInputProps {
   type: 'text' | 'email' | 'password' | 'number' | 'phone';
   id: string;
@@ -14,7 +12,7 @@ interface ICustomInputProps {
   onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CustomInput: FC<ICustomInputProps> = ({
+const CustomInput = ({
   label,
   id,
   placeholder,
@@ -26,7 +24,7 @@ const CustomInput: FC<ICustomInputProps> = ({
   disabled = false,
   className = '',
   onBlur,
-}) => (
+}: ICustomInputProps) => (
   <div className={className}>
     {label && (
       <label htmlFor={id} className='mb-2 block cursor-pointer text-xs font-bold uppercase tracking-wide text-white'>

@@ -1,13 +1,25 @@
-import React from 'react';
+import { cache } from 'react';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import { IPageProps } from '@/interfaces/app';
-import { getProjectBySlug } from '@/helpers/api';
+import { getMetadataInfo, getProjectBySlug } from '@/helpers/api';
+import { LangVars } from '@/constants/lang';
 
 interface IPolicyPage extends IPageProps {
   params: Promise<{ slug: string }>;
 }
+
+const getProjectBySlugCached = cache(getProjectBySlug);
+
+export const generateMetadata = async ({ params }: IPolicyPage): Promise<Metadata> => {
+  const { slug } = await params;
+  const { description } = LangVars.Metadata;
+  const { title } = LangVars.Terms;
+
+  return await getMetadataInfo(slug, { title, description }, getProjectBySlugCached);
+};
 
 const PolicyPage = async ({ params }: IPolicyPage) => {
   const { slug } = await params;
@@ -30,6 +42,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
                   <span className='mr-1 inline-block rotate-180'>&#x27A4;</span>BACK
                 </>
               ),
+              title: `Return to "${projectTitle}" project`,
               url: `/project/${slug}`,
             },
             {
@@ -38,9 +51,11 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
                   HOME<span className='ml-1'>&#x27A4;</span>
                 </>
               ),
+              title: 'Return to the homepage',
               url: '/',
             },
           ]}
+          className='justify-between'
         />
         <div className='my-10'>
           <Header level={1} className='text-center text-3xl text-myBlue lg:text-left lg:text-4xl'>
@@ -61,11 +76,13 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={3} className='text-md mb-3 text-left text-myBlue lg:text-lg'>
             User Provided Information
           </Header>
+
           <p className='text-justify'>
             The Application acquires the information you supply when you download and register the Application. Registration with the Service Provider
             is not mandatory. However, bear in mind that you might not be able to utilize some of the features offered by the Application unless you
             register with them.
           </p>
+
           <p className='text-justify'>
             The Service Provider may also use the information you provided them to contact you from time to time to provide you with important
             information, required notices and marketing promotions.
@@ -74,6 +91,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={3} className='text-md my-3 text-left text-myBlue lg:text-lg'>
             Automatically Collected Information
           </Header>
+
           <p>
             In addition, the Application may collect certain information automatically, including, but not limited to, the type of mobile device you
             use, your mobile devices unique device ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet
@@ -83,6 +101,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Does the Application collect precise real time location information of the device?
           </Header>
+
           <p>This Application does not gather precise information about the location of your mobile device.</p>
 
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
@@ -94,10 +113,12 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy
             statement.
           </p>
+
           <p className='text-justify'>
             Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links
             to the Privacy Policy of the third-party service providers used by the Application:
           </p>
+
           <ul>
             <li>
               <a
@@ -110,9 +131,11 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
               </a>
             </li>
           </ul>
+
           <Header level={3} className='text-md my-3 text-left text-myBlue lg:text-lg'>
             The Service Provider may disclose User Provided and Automatically Collected Information:
           </Header>
+
           <ul className='m-4 list-disc md:m-7'>
             <li className='text-justify'>as required by law, such as to comply with a subpoena, or similar legal process;</li>
             <li className='text-justify'>
@@ -137,6 +160,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Data Retention Policy, Managing Your Information
           </Header>
+
           <p className='text-justify'>
             {`The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. The Service
         Provider will retain Automatically Collected information for up to 24 months and thereafter may store it in aggregate. If you'd like the
@@ -148,9 +172,11 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Children
           </Header>
+
           <p className='text-justify'>
             The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.
           </p>
+
           <p className='text-justify'>
             The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable
             information from children under 13 years of age. In the case the Service Provider discover that a child under 13 has provided personal
@@ -174,17 +200,19 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Changes
           </Header>
+
           <p className='text-justify'>
             This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy
             Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as
             continued use is deemed approval of all changes.
           </p>
 
-          <p className='my-3'>This privacy policy is effective as of 2024-11-01.</p>
+          <p className='my-3'>This privacy policy is effective as of 2025-12-01.</p>
 
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Your Consent
           </Header>
+
           <p className='text-justify'>
             {`By using the Application, you are giving your consent to the Service Provider processing of your information as set forth in this Privacy
         Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way,
@@ -194,6 +222,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Contact us
           </Header>
+
           <p className='text-justify'>
             If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service
             Provider via email at support@roninmobile.eu.

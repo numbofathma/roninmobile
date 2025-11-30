@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const LangVars = {
   Metadata: {
     name: 'Ronin Mobile',
@@ -41,11 +39,21 @@ export const LangVars = {
         <span className='font-extrabold text-myBlue'>right</span> place!
       </>
     ),
-    whatWeDo:
-      'With more than 15 years of experience in software development we aim to deliverer awesome games for your studio or marketing campaigns',
+    whatWeDo: "With more than 15 years of experience in software development, we aim to deliver awesome games for your company's marketing campaigns",
+  },
+  Privacy: {
+    title: 'Privacy Policy',
+  },
+  Terms: {
+    title: 'Terms & Conditions',
   },
   OurWork: {
-    sectionTitle: 'Check out some of our work',
+    sectionTitle: (
+      <>
+        <span className='text-myRed'></span>
+        {`Check out some of our work`}
+      </>
+    ),
     itemTitle: (
       <>
         {
@@ -60,13 +68,23 @@ export const LangVars = {
     projectTitlePrefix: 'Check out some in-game screenshots from ',
   },
   Contact: {
-    sectionTitle: 'Getting in touch is easy!',
+    sectionTitle: (
+      <>
+        <span className='text-myRed'></span>
+        {`Getting in touch is easy`}
+      </>
+    ),
     itemTitle: `Send us a message or an e-mail if you are interested in working together.`,
   },
   Validation: {
     General: {
       mock: 'Good luck, bro!',
       general: 'Error occured while sending your message!',
+    },
+    Recaptcha: {
+      recaptchaInitFailure: 'reCAPTCHA could not be initialized. Please refresh the page or try again later.',
+      verificationFailure: 'reCAPTCHA verification failed. If this is a mistake, please contact us directly at ###{contactEmail}###.',
+      missingToken: 'reCAPTCHA verification failed. Please refresh the page or try again later.',
     },
     DomainValidator: {
       notFound: 'Domain could not be extracted',

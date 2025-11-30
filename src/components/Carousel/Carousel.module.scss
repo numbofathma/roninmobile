@@ -29,6 +29,7 @@
     height: var(--slide-max-height);
     padding-left: var(--slide-spacing);
     transform: translate3d(0, 0, 0);
+
     @apply drop-shadow-lg;
 
     &__number {
@@ -51,8 +52,6 @@
   &__controls {
     display: flex;
     justify-content: space-around;
-    gap: 1.2rem;
-    margin-top: 1.8rem;
   }
 
   &__buttons {
@@ -104,7 +103,7 @@
 @media screen and (orientation: portrait) {
   .desktop,
   .mobile {
-    min-height: 55vh;
+    min-height: 75vh;
   }
 }
 
@@ -114,6 +113,6 @@
   }
 
   .desktop {
-    min-height: 55vh;
+    min-height: 75vh;
   }
 }

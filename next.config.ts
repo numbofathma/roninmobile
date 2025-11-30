@@ -10,11 +10,15 @@ const withBundleAnalyzer = async (config: NextConfig) => {
 };
 
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizeCss: true,
+    inlineCss: true,
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-    silenceDeprecations: ['legacy-js-api'],
   },
   images: {
+    qualities: [80, 100],
     remotePatterns: [
       {
         protocol: 'https',

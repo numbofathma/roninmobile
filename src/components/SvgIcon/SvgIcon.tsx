@@ -1,5 +1,5 @@
-import { FC, memo } from 'react';
-import { BASE_URL } from '@/constants';
+import { memo } from 'react';
+import { CDN_URL } from '@/constants';
 import { SvgIcons } from '@/constants/enums';
 import style from './SvgIcon.module.scss';
 
@@ -9,7 +9,7 @@ interface ISvgIconProps {
   style?: React.CSSProperties;
 }
 
-const SvgIcon: FC<ISvgIconProps> = ({ icon = SvgIcons.back, className = '', style: iconStyle }) => {
+const SvgIcon = ({ icon = SvgIcons.back, className = '', style: iconStyle }: ISvgIconProps) => {
   if (!icon) {
     return null;
   }
@@ -18,8 +18,8 @@ const SvgIcon: FC<ISvgIconProps> = ({ icon = SvgIcons.back, className = '', styl
     <span
       className={`${style.icon} svg-icon ${className}`}
       style={{
-        maskImage: `url(${BASE_URL}/static/img/icons/${icon}.svg)`,
-        WebkitMaskImage: `url(${BASE_URL}/static/img/icons/${icon}.svg)`,
+        maskImage: `url(${CDN_URL}/static/img/icons/${icon}.svg)`,
+        WebkitMaskImage: `url(${CDN_URL}/static/img/icons/${icon}.svg)`,
         ...iconStyle,
       }}
     />
