@@ -16,20 +16,7 @@ const WeAre = ({ isMobile = false }: IWeAreProps) => {
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='text-center'>
-        <Image
-          width={logoWidth}
-          height={logoHeight}
-          style={{
-            maxWidth: `${logoWidth}px`,
-            maxHeight: `${logoHeight}px`,
-            width: '100%',
-            height: 'auto',
-          }}
-          src={`${CDN_URL}/static/roninmobile.webp`}
-          alt={name}
-          priority
-          className='mx-auto my-5'
-        />
+        <Image width={logoWidth} height={logoHeight} src={`${CDN_URL}/static/roninmobile.webp`} alt={name} preload={true} className='mx-auto my-5' />
       </div>
       <Header level={1} className='my-5 text-3xl text-myBlue md:mb-5 md:mt-10 md:text-4xl'>
         {question}

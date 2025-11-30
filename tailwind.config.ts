@@ -21,7 +21,7 @@ export default {
         dark: '#181818',
       },
       fontFamily: {
-        sans: ['var(--font-lato)'],
+        lato: ['var(--font-lato)'],
       },
     },
     screens: {

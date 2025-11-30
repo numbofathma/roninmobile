@@ -18,8 +18,8 @@ const NotFound = () => {
   return (
     <div className='relative z-10 flex min-h-[100vh] grid-cols-12 justify-center gap-6'>
       <div className='flex flex-col items-center justify-center'>
-        <Header level={1} className='text-2xl md:text-4xl'>
-          <span className='text-myBlue'>404:</span> <span className='text-myRed'>Sorry...</span>
+        <Header level={1} className='text-xl md:text-2xl'>
+          <span className='text-myRed'>404:</span> <span className='text-myBlue'>Sorry, we couldn&apos;t find it!</span>
         </Header>
 
         <div className='py-10 text-center'>

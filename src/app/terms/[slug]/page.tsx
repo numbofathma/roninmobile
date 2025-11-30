@@ -156,7 +156,7 @@ const TermsPage = async ({ params }: ITermsPagePage) => {
             changes. The Service Provider will notify you of any changes by posting the new Terms and Conditions on this page.
           </p>
 
-          <p className='my-3 text-justify'>These terms and conditions are effective as of 2024-12-02.</p>
+          <p className='my-3 text-justify'>These terms and conditions are effective as of 2025-12-01.</p>
 
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Contact Us

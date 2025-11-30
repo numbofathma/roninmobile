@@ -207,7 +207,7 @@ const PolicyPage = async ({ params }: IPolicyPage) => {
             continued use is deemed approval of all changes.
           </p>
 
-          <p className='my-3'>This privacy policy is effective as of 2024-12-02.</p>
+          <p className='my-3'>This privacy policy is effective as of 2025-12-01.</p>
 
           <Header level={2} className='mb-3 mt-10 text-left text-lg text-myBlue lg:text-2xl'>
             Your Consent
