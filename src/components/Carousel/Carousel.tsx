@@ -105,19 +105,17 @@ const Carousel = (props: ICarouselProps) => {
     <>
       {currentPath && (
         <CustomModal isMobile={isMobile} isOpen onClose={handleModal(null)}>
-          <Image
-            src={currentPath}
-            alt={title}
-            quality={100}
-            width={0}
-            height={0}
-            sizes='100%'
-            style={{
-              width: 'max-content',
-              height: '70vh',
-              objectFit: 'contain',
-            }}
-          />
+          <div className={style['embla__modal']}>
+            <Image
+              src={currentPath}
+              alt={title}
+              fill
+              sizes='100%'
+              style={{
+                objectFit: 'contain',
+              }}
+            />
+          </div>
         </CustomModal>
       )}
 
