@@ -1,7 +1,8 @@
 import { cache } from 'react';
 import { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import Carousel from '@/components/Carousel';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
@@ -39,6 +40,9 @@ const ProjectPage = async ({ params }: IProjectPage) => {
 
   return (
     <div className='flex h-full min-h-full flex-col'>
+      <Link href='/' title='Back to Home' className={'absolute left-4 top-3 text-xs text-myBlue hover:text-myRed'}>
+        <span className='inline-block rotate-180'>&#x27A4;</span> BACK
+      </Link>
       <div className='container m-auto max-w-screen-xl px-7 py-5'>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
           <div className='my-5'>
